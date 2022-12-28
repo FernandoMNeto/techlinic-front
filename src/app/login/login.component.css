@@ -1,0 +1,85 @@
+.main-login{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../../../../medicina-e-saude-na-cor-azul_1017-26807.webp);
+}
+
+.right-login{
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-login{
+    width: 60%;
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 35px;
+    border-radius: 20px;
+}
+
+.card-login > h2{
+    color: rgb(0, 142, 167);
+    font-size: 40px;
+    font-weight: 800;
+    margin: 30px;
+}
+
+.textfield{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 15px 0px;
+}
+
+.textfield > input{
+    width: 75%;
+    border: none;
+    padding: 15px;
+    text-align: center;
+    background-color: #fffefe00;
+    color: rgb(0, 142, 167);
+    font-size: 14px;
+    border: 2px solid rgb(0, 142, 167);
+    border-radius: 5px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.textfield > label{
+    color: rgb(0, 142, 167);
+    font-size: 20px;
+    margin-bottom: 10px;
+    margin-top: 30px;
+}
+
+.textfield > input::placeholder{
+    color: rgb(0, 142, 167);
+}
+
+.btn-login{
+    width: 75%;
+    padding: 16px 0px;
+    margin: 75px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 142, 167);;
+    border-color: rgb(0, 142, 167);
+    border-radius: 10px;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 3px;
+    cursor: pointer;
+}
+
+
