@@ -4,7 +4,29 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(../../../../medicina-e-saude-na-cor-azul_1017-26807.webp);
+    background-image: url(https://img.freepik.com/premium-vector/abstract-molecules-background-molecular-structures-chemical-engineering-genetic-research_120542-1198.jpg?w=2000);
+}
+
+.page-title{
+    color: #f0f8ff;
+    font-size: 40px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px black;
+    margin-bottom: 125px;
+}
+
+.cartoon{
+    width: 40vw;
+    height: 50vh;
+}
+
+.left-login{
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .right-login{
@@ -27,9 +49,10 @@
 }
 
 .card-login > h2{
-    color: rgb(0, 142, 167);
+    color: #f0f8ff;
     font-size: 40px;
     font-weight: 800;
+    text-shadow: 2px 2px black;
     margin: 30px;
 }
 
@@ -47,24 +70,26 @@
     border: none;
     padding: 15px;
     text-align: center;
-    background-color: #fffefe00;
-    color: rgb(0, 142, 167);
+    background-color: #ffffff00;
+    backdrop-filter: blur(10px);
+    color: #f0f8ff;
     font-size: 14px;
-    border: 2px solid rgb(0, 142, 167);
+    border: 2px solid #f0f8ff;
     border-radius: 5px;
     outline: none;
     box-sizing: border-box;
 }
 
 .textfield > label{
-    color: rgb(0, 142, 167);
+    color: #f0f8ff;
+    text-shadow: 2px 2px black;
     font-size: 20px;
     margin-bottom: 10px;
     margin-top: 30px;
 }
 
 .textfield > input::placeholder{
-    color: rgb(0, 142, 167);
+    color: #f0f8ff;
 }
 
 .btn-login{
@@ -72,8 +97,9 @@
     padding: 16px 0px;
     margin: 75px;
     color: rgb(255, 255, 255);
-    background-color: rgb(0, 142, 167);;
-    border-color: rgb(0, 142, 167);
+    background-color: #38b1b1;
+    text-shadow: 2px 2px black;
+    border-color: #32a3a3;
     border-radius: 10px;
     outline: none;
     text-transform: uppercase;

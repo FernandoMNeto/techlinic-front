@@ -1,7 +1,11 @@
 <div class="main-login">
+  <div class="left-login">
+    <h1 class="page-title">Techlinic System</h1>
+    <img class="cartoon" src="../../assets/images/logincartoon.png" alt="">
+  </div>
   <div class="right-login">
       <form [formGroup]="loginForm" (ngSubmit)="submit()" class="card-login">
-          <h2>Techlinic Login</h2>
+          <h2>Login</h2>
           <div class="textfield">
             <label for="user">Usuário</label>
             <input formControlName="username" type="text" name="user" placeholder="Nome de Usuário">
