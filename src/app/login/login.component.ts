@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AutheticationService } from '../services/authetication/authetication.service';
 
 @Component({
   selector: 'app-login',
@@ -14,12 +15,15 @@ export class LoginComponent implements OnInit {
     password: [null, Validators.required]
   });
   
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(
+    private formBuilder: FormBuilder, 
+    private autheticationService: AutheticationService
+    ) { }
 
   ngOnInit(): void {
   }
 
   submit() {
-    console.log(this.loginForm.value)
+    this.autheticationService.submitLogin(this.loginForm.value);
   }
 }

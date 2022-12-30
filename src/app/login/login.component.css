@@ -4,14 +4,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(https://img.freepik.com/premium-vector/abstract-molecules-background-molecular-structures-chemical-engineering-genetic-research_120542-1198.jpg?w=2000);
 }
 
 .page-title{
-    color: #f0f8ff;
+    color: #1E90FF;
     font-size: 40px;
+    font-style: italic;
+    letter-spacing: 10px;
     text-transform: uppercase;
-    text-shadow: 2px 2px black;
     margin-bottom: 125px;
 }
 
@@ -38,22 +38,20 @@
 }
 
 .card-login{
-    width: 60%;
+    width: 50%;
     height: 75vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    padding: 30px 35px;
-    border-radius: 20px;
+    border-radius: 25px;
 }
 
 .card-login > h2{
-    color: #f0f8ff;
+    color: #1E90FF;
+    letter-spacing: 6px;
     font-size: 40px;
-    font-weight: 800;
-    text-shadow: 2px 2px black;
-    margin: 30px;
+    font-weight: 900;
+    margin: 50px;
 }
 
 .textfield{
@@ -70,42 +68,43 @@
     border: none;
     padding: 15px;
     text-align: center;
-    background-color: #ffffff00;
-    backdrop-filter: blur(10px);
-    color: #f0f8ff;
+    color: #1E90FF;
     font-size: 14px;
-    border: 2px solid #f0f8ff;
-    border-radius: 5px;
+    border: 2px solid #1E90FF;
+    border-radius: 10px;
     outline: none;
     box-sizing: border-box;
 }
 
 .textfield > label{
-    color: #f0f8ff;
-    text-shadow: 2px 2px black;
-    font-size: 20px;
+    color: #1E90FF;
+    font-size: 17px;
+    letter-spacing: 2px;
     margin-bottom: 10px;
     margin-top: 30px;
 }
 
 .textfield > input::placeholder{
-    color: #f0f8ff;
+    color: #1e8fff7b;
 }
 
 .btn-login{
     width: 75%;
     padding: 16px 0px;
-    margin: 75px;
+    margin: 10%;
     color: rgb(255, 255, 255);
-    background-color: #38b1b1;
-    text-shadow: 2px 2px black;
-    border-color: #32a3a3;
     border-radius: 10px;
+    background: linear-gradient(180deg, #1E90FF 30%, rgb(15, 76, 230) 90%);
+    border-style: none;
     outline: none;
     text-transform: uppercase;
-    font-weight: 800;
+    font-weight: 900;
     letter-spacing: 3px;
     cursor: pointer;
+}
+
+.btn-login:hover{
+    background: linear-gradient(180deg, rgb(15, 76, 230)30% , #1E90FF 90%);
 }
 
 
