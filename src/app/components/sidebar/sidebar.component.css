@@ -18,8 +18,8 @@
     padding: 15px 30px;
     margin-bottom: 5px;
     cursor: pointer;
+    border-radius: 20px;
     color: white;
-    border-color: var(--primary-color);
 }
 
 .item-name{
@@ -39,5 +39,6 @@
 }
 
 #logout{
-    align-items: flex-end;
+    position: absolute;
+    bottom: 10px;
 }

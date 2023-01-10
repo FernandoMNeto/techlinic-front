@@ -6,10 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./schedules.component.css']
 })
 export class SchedulesComponent implements OnInit {
-menuAction() {
-throw new Error('Method not implemented.');
-}
-
 
   constructor() { }
 
