@@ -1,0 +1,43 @@
+.sidebar{
+    width: 20vw;
+    height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--primary-color);
+}
+
+.logo{
+    width: 200px;
+    height: 200px;
+    align-self: center;
+    margin-top: 10px;
+}
+
+.item{
+    padding: 15px 30px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.item-name{
+    padding: 20px;
+    vertical-align: middle;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+.item:hover{
+    background-color: rgb(255, 255, 255);
+    color: var(--primary-color);
+}
+
+.material-symbols-outlined{
+    vertical-align: middle;
+}
+
+#logout{
+    align-items: flex-end;
+}

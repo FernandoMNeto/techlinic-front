@@ -1,0 +1,83 @@
+.page {
+    display: flex;
+}
+
+@media (max-width: 1300px) {
+    app-sidebar {
+        display: none;
+    }
+
+    .left {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .content {
+        position: relative;
+        margin: 0 auto;
+    }
+
+    .title{
+        align-self: center;
+    }
+
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80vw;
+    height: 10vh;
+    color: var(--primary-color);
+    font-size: 20px;
+}
+
+.content {
+    width: 80vw;
+    height: 90vh;
+}
+
+.container-itens {
+    width: 60vw;
+    height: 80vh;
+    position: relative;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.item {
+    padding: 10px;
+    width: 200px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-right: 20px;
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+}
+
+.item>span {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+#menu-icon {
+    position: absolute;
+    font-size: 60px;
+    color: var(--primary-color);
+    cursor: pointer;
+}

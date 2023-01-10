@@ -1,0 +1,104 @@
+.main-login {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../../assets/images/loginBackground.png);
+}
+
+.login {
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-login {
+    width: 100%;
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 25px;
+}
+
+.card-login>h2 {
+    color: rgb(0, 153, 255);
+    text-shadow: 5px 2px rgb(200, 200, 200);
+    letter-spacing: 10px;
+    text-transform: uppercase;
+    font-size: 10vh;
+    font-weight: 900;
+    margin-bottom: 50px;
+}
+
+.textfield {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.textfield>input {
+    width: 50%;
+    border: none;
+    padding: 15px;
+    text-align: center;
+    color: rgb(0, 153, 255);
+    font-size: 14px;
+    background-color: rgba(255, 255, 255, 0);
+    border-bottom: 2px solid rgb(0, 153, 255);
+    outline: none;
+    box-sizing: border-box;
+}
+
+.textfield>label {
+    color: rgb(0, 153, 255);
+    font-size: 17px;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    margin-top: 30px;
+}
+
+span{
+    color: rgb(223, 78, 78);
+    font-size: 12px;
+}
+
+.textfield>input::placeholder {
+    color: rgba(0, 153, 255, 0.499);
+}
+
+.btn-login {
+    width: 25%;
+    padding: 16px;
+    margin-top: 50px;
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    background: linear-gradient(rgb(146, 211, 255), rgb(0, 153, 255));
+    border-style: none;
+    border-color: white;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: 3px;
+    cursor: pointer;
+}
+
+.btn-login:disabled{
+    background: lightgray;
+    color: gray;
+    border: 1px solid gray;
+    cursor: not-allowed;
+}
+
+.btn-login:disabled:hover{
+    background: lightgray;
+}
+
+.btn-login:hover {
+    background: linear-gradient(rgb(0, 153, 255), rgb(146, 211, 255)) ;
+}
