@@ -1,19 +1,26 @@
-import { Component, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { combineLatest } from 'rxjs';
+import { ConsultComponent } from './components/consult/consult.component';
+import { DoctorComponent } from './components/doctor/doctor.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
+import { PacientComponent } from './components/pacient/pacient.component';
 import { SchedulesComponent } from './components/schedules/schedules.component';
+import { AutheticationGuard } from './guards/authetication.guard';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' },
   { path: 'login', component: LoginComponent },
-  { path: 'home', component: HomeComponent },
-  { path: 'schedules', component: SchedulesComponent}
+  { path: 'home', component: HomeComponent, canActivate: [AutheticationGuard] },
+  { path: 'schedules', component: SchedulesComponent, canActivate: [AutheticationGuard] },
+  { path: 'doctor', component: DoctorComponent, canActivate: [AutheticationGuard] },
+  { path: 'pacient', component: PacientComponent, canActivate: [AutheticationGuard] },
+  { path: 'consults', component: ConsultComponent, canActivate: [AutheticationGuard] }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AutheticationGuard]
 })
 export class AppRoutingModule { }

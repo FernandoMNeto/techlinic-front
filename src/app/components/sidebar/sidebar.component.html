@@ -1,6 +1,5 @@
 <div class="sidebar">
     <img src="../../assets/images/logo.png" class="logo" alt="">
-
     <div class="item" routerLink="/home">
         <span class="material-symbols-outlined">
             home
@@ -13,26 +12,32 @@
         </span>
         <label class="item-name">Agendamentos</label>
     </div>
-    <div class="item">
+    <div class="item" routerLink="/doctor">
         <span class="material-symbols-outlined">
-            person
+            stethoscope
         </span>
-        <label class="item-name">Médicos</label>
+        <label class="item-name" >Médicos</label>
     </div>
-    <div class="item">
+    <div class="item" routerLink="/pacient">
         <span class="material-symbols-outlined">
             personal_injury
         </span>
         <label class="item-name">Pacientes</label>
     </div>
-    <div class="item">
+    <div class="item" routerLink="/consults">
         <span class="material-symbols-outlined">
             today
         </span>
         <label class="item-name">Consultas</label>
     </div>
+    <div class="item">
+        <span class="material-symbols-outlined">
+            monitoring
+        </span>
+        <label class="item-name">Relatórios</label>
+    </div>
 
-    <div class="item" id="logout">
+    <div (click)="logout()" routerLink="/login" class="item" id="logout">
         <span class="material-symbols-outlined">
             logout
         </span>

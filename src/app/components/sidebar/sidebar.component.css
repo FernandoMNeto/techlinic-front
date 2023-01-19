@@ -7,9 +7,23 @@
     background-color: var(--primary-color);
 }
 
+@media (max-width: 1300px) {
+    .item-name{
+        display: none;
+    }
+
+    .item{
+        display: flex;
+        justify-content: center;
+    }
+
+    .logo{
+        width: 140px;
+        height: 140px;
+    }
+}
+
 .logo{
-    width: 200px;
-    height: 200px;
     align-self: center;
     margin-top: 10px;
 }

@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { MatSnackBar } from '@angular/material';
 import { Router } from '@angular/router';
+import { NgToastService } from 'ng-angular-popup';
 import { responseToken } from 'src/app/models/responseToken.model';
 import { environment } from 'src/environments/environment';
 import { TokenService } from '../token/token.service';
@@ -18,30 +18,27 @@ export class AutheticationService {
 
   constructor(
     private http: HttpClient,
-    private router: Router,
     private tokenService: TokenService,
+    private router: Router,
+    private toast: NgToastService
   ) { }
 
   submitLogin(value: any) {
 
-    this.http.post<responseToken>(this.baseUrl + '/login', {
+    this.http.post<responseToken>(this.baseUrl + 'login', {
       'username': value.username,
       'password': value.password
     }).subscribe({
       next: (res) => {
         this.token = res;
         this.tokenService.saveTokenInStorage(this.token);
+        this.toast.success({detail: "Login realizado com sucesso!"});
         this.router.navigate(['home']);
       },
-      error: (erro) => {
-        if(typeof erro.error.msg !== 'undefined') {
-         
-        }else 
-        console.log('bad credentials');
+      error: (res) => {
+        this.toast.error({detail: "Credenciais inválidas!", summary: "nome de usuario ou senha inválidos"});
       }
     });
   }
-
-
 
 }

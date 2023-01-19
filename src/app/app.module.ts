@@ -6,11 +6,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
-import { AngularMaterialModule } from './shared/angular-material/angular-material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HomeComponent } from './components/home/home.component';
 import { SchedulesComponent } from './components/schedules/schedules.component';
+import { DoctorComponent } from './components/doctor/doctor.component';
+import { PacientComponent } from './components/pacient/pacient.component';
+import { NgToastModule } from 'ng-angular-popup';
+import { ConsultComponent } from './components/consult/consult.component';
+import { RelatorysComponent } from './components/relatorys/relatorys.component';
+
 
 @NgModule({
   declarations: [
@@ -18,16 +23,20 @@ import { SchedulesComponent } from './components/schedules/schedules.component';
     LoginComponent,
     HomeComponent,
     SidebarComponent,
-    SchedulesComponent
+    SchedulesComponent,
+    DoctorComponent,
+    PacientComponent,
+    ConsultComponent,
+    RelatorysComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    AngularMaterialModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    NgToastModule
   ],
   providers: [],
   bootstrap: [AppComponent]
