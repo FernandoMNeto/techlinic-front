@@ -1,1 +1,21 @@
-<p>relatorys works!</p>
+<div class="page">
+    <div class="sidebar" *ngIf="menuStatus>0">
+        <app-sidebar></app-sidebar>
+    </div>
+    <div class="left">
+        <div class="title">
+            <h2>Relatórios</h2>
+        </div>
+        <div class="content">
+            <div class="container-itens">
+                <div class="item">
+                    <span class="material-symbols-outlined"></span>
+                    <p class="item-name"></p>
+                </div>
+            </div>
+        </div>
+        <span *ngIf="menuStatus<0" (click)="menuAction()" class="material-symbols-outlined" id="menu-icon">menu</span>
+        <span *ngIf="menuStatus>0" (click)="menuAction()" class="material-symbols-outlined"
+            id="menu-icon">arrow_circle_left</span>
+    </div>
+</div>

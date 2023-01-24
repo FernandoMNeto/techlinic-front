@@ -2,7 +2,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
-import { responseToken } from 'src/app/models/responseToken.model';
+import { responseToken } from 'src/app/models/token/responseToken.model';
 import { environment } from 'src/environments/environment';
 import { TokenService } from '../token/token.service';
 

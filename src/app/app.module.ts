@@ -11,10 +11,11 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HomeComponent } from './components/home/home.component';
 import { SchedulesComponent } from './components/schedules/schedules.component';
 import { DoctorComponent } from './components/doctor/doctor.component';
-import { PacientComponent } from './components/pacient/pacient.component';
 import { NgToastModule } from 'ng-angular-popup';
 import { ConsultComponent } from './components/consult/consult.component';
 import { RelatorysComponent } from './components/relatorys/relatorys.component';
+import { RegisterPacientComponent } from './components/pacients-components/register-pacient/register-pacient.component';
+import { PacientComponent } from './components/pacients-components/pacient/pacient.component';
 
 
 @NgModule({
@@ -27,7 +28,9 @@ import { RelatorysComponent } from './components/relatorys/relatorys.component';
     DoctorComponent,
     PacientComponent,
     ConsultComponent,
-    RelatorysComponent
+    RelatorysComponent,
+    RegisterPacientComponent,
+    RegisterPacientComponent
   ],
   imports: [
     BrowserModule,

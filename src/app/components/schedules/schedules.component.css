@@ -1,7 +1,7 @@
 .page {
     display: flex;
     justify-content: center;
-    background: linear-gradient(white, rgba(25, 25, 112, 0.271));
+    background: linear-gradient(white, #adc0f8);
 }
 
 .left {

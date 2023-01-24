@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { responseToken } from 'src/app/models/responseToken.model';
+import { responseToken } from 'src/app/models/token/responseToken.model';
 import { environment } from 'src/environments/environment';
 
 @Injectable({

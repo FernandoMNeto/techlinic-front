@@ -1,0 +1,82 @@
+<div class="page">
+    <Header class="header">
+        <H2>Cadastro de pacientes</H2>
+    </Header>
+    
+    <form [formGroup]="pacientForm" class="form"  (ngSubmit)="submit()">
+
+        <label>Dados pessoais</label>
+
+        <div class="item-container">
+    
+            <div class="name">
+                <label>Nome</label>
+                <input formControlName="firstName" type="text">
+            </div>
+
+            <div class="name">
+                <label>Sobrenome</label>
+                <input formControlName="lastName" type="text">
+            </div>
+
+        </div>
+
+        <div class="item-container">
+
+            <div class="name">
+                <label>Email</label>
+                <input formControlName="email" type="email">
+            </div>
+
+            <div class="name">
+                <label>Telefone</label>
+                <input formControlName="phone" type="text">
+            </div>
+
+        </div>
+
+        <div class="item-container">
+
+            <div class="name">
+                <label>CPF</label>
+                <input formControlName="cpf" type="text">
+            </div>
+            <div class="name">
+                <label>Data de nascimento</label>
+                <input formControlName="bornDate" type="date">
+            </div>
+
+        </div>
+
+        <label>Endereço</label>
+
+        <div class="item">
+            <label>CEP</label>
+            <input formControlName="cep" type="text">
+        </div>
+
+        <div class="item">
+            <label>Rua</label>
+            <input formControlName="street" type="text">
+        </div>
+
+        <div class="item">
+            <label>Cidade</label>
+            <input formControlName="city" type="text">
+        </div>
+        <div class="item">
+            <label>Estado</label>
+            <input formControlName="state" type="text">
+        </div>
+        <div class="item">
+            <label>Número</label>
+            <input formControlName="number" type="text">
+        </div>
+        <div class="item">
+            <label>Complemento</label>
+            <input formControlName="complement" type="text">
+        </div>
+
+        <button class="button" type="submit">Cadastrar</button>
+    </form>
+</div>
