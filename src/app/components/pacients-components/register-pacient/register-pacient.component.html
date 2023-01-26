@@ -1,14 +1,17 @@
 <div class="page">
     <Header class="header">
-        <H2>Cadastro de pacientes</H2>
+        <p>Cadastro de pacientes</p>
+        <div class="back-button">
+            <span class="material-symbols-outlined" style="font-weight: 800;">reply</span>
+            <p>voltar</p>
+        </div>
     </Header>
-    
-    <form [formGroup]="pacientForm" class="form"  (ngSubmit)="submit()">
+    <form [formGroup]="pacientForm" class="form" (ngSubmit)="submit()">
 
         <label>Dados pessoais</label>
 
         <div class="item-container">
-    
+
             <div class="name">
                 <label>Nome</label>
                 <input formControlName="firstName" type="text">
@@ -30,7 +33,7 @@
 
             <div class="name">
                 <label>Telefone</label>
-                <input formControlName="phone" type="text">
+                <input formControlName="phone" type="tel">
             </div>
 
         </div>
@@ -50,33 +53,45 @@
 
         <label>Endereço</label>
 
-        <div class="item">
-            <label>CEP</label>
-            <input formControlName="cep" type="text">
+        <div class="item-container">
+            <div class="item">
+                <label>CEP</label>
+                <input (blur)="findCep()" formControlName="cep" type="text">
+            </div>
+            <div class="street">
+                <label>Cidade</label>
+                <input formControlName="city" type="text">
+            </div>
+        </div>
+        <div class="item-container">
+            <div class="street">
+                <label>Rua</label>
+                <input formControlName="street" type="text">
+            </div>
+            <div class="item">
+                <label>Número</label>
+                <input formControlName="number" type="text">
+            </div>
         </div>
 
-        <div class="item">
-            <label>Rua</label>
-            <input formControlName="street" type="text">
+        <div class="item-container">
+            <div class="street">
+                <label>Bairro</label>
+                <input formControlName="district" type="text">
+            </div>
+            <div class="item">
+                <label>Estado</label>
+                <input formControlName="state" type="text">
+            </div>
         </div>
 
-        <div class="item">
-            <label>Cidade</label>
-            <input formControlName="city" type="text">
-        </div>
-        <div class="item">
-            <label>Estado</label>
-            <input formControlName="state" type="text">
-        </div>
-        <div class="item">
-            <label>Número</label>
-            <input formControlName="number" type="text">
-        </div>
-        <div class="item">
-            <label>Complemento</label>
-            <input formControlName="complement" type="text">
+        <div>
+            <div class="item" style="width: 100%;">
+                <label>Complemento</label>
+                <input formControlName="complement" type="text">
+            </div>
         </div>
 
-        <button class="button" type="submit">Cadastrar</button>
+        <button class="button" [disabled]="!pacientForm.valid" type="submit">Cadastrar</button>
     </form>
 </div>

@@ -26,8 +26,8 @@ export class AutheticationService {
   submitLogin(value: any) {
 
     this.http.post<responseToken>(this.baseUrl + 'login', {
-      'username': value.username,
-      'password': value.password
+      "username": value.username,
+      "password": value.password
     }).subscribe({
       next: (res) => {
         this.token = res;
@@ -35,8 +35,12 @@ export class AutheticationService {
         this.toast.success({detail: "Login realizado com sucesso!"});
         this.router.navigate(['home']);
       },
-      error: (res) => {
-        this.toast.error({detail: "Credenciais inválidas!", summary: "nome de usuario ou senha inválidos"});
+      error: (erro) => {
+        if(erro.status == 400) {
+          this.toast.error({detail: "Credenciais inválidas!", summary: "nome de usuario ou senha inválidos"});
+        }else {
+          this.toast.error({detail: "Não foi possível se conectar com o servidor!", summary: "tente novamente mais tarde!"});
+        }
       }
     });
   }

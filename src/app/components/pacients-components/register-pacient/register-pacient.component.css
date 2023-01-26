@@ -4,49 +4,61 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: var(--primary-color);
 }
 
-.header {
+.header{
     width: 100vw;
-    height: 10vh;
-    font-size: 20px;
+    height: 5vh;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    background-color: var(--primary-color);
+    font-size: 20px;
     color: white;
 }
 
-
 .form {
-    width: 75%;
-    height: 85%;
+    width: 75vw;
+    height: 95vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    border-radius: 10px;
-    background-color: white;
-    padding: 10px;
+    flex-wrap: wrap;
+    box-sizing: border-box;
 }
 
 .form>label {
     font-size: 20px;
+    margin-top: 25px;
     font-weight: 800;
-    margin-top: 20px;
     margin-bottom: 10px;
-    align-self: center;
+    letter-spacing: 1px;
+    color: var(--primary-color);
+}
+
+.form>div>div>label{
+    font-weight: 200;
+    margin-top: 8px;
+    margin-bottom: 2px;
 }
 
 
 input {
-    padding: 5px;
-    border-radius: 5px;
-    border: 1px solid black;
+    padding: 8px;
+    border: 2px solid lightgrey;
+    box-sizing: border-box;
+    border-radius: 10px;
 }
 
 .item {
     display: flex;
     flex-direction: column;
+    width: 14%;
+}
+
+.street {
+    display: flex;
+    flex-direction: column;
+    width: 85%;
 }
 
 .item-container {
@@ -63,11 +75,37 @@ input {
 .button {
     width: 150px;
     padding: 10px;
-    margin-top: 20px;
-    font-size: 15px;
+    font-size: 18px;
+    font-weight: 800;
+    margin-top: 25px;
     align-self: center;
     cursor: pointer;
+    border-style: hidden;
     border-radius: 5px;
     background-color: var(--primary-color);
     color: white;
+}
+
+.button:disabled{
+    background: lightgray;
+    border: 2px solid darkgray;
+    cursor: not-allowed;
+}
+
+.back-button{
+    width: 110px;
+    height: 5vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    letter-spacing: 2px;
+    left: 30px;
+    border: 2px solid white;
+    border-radius: 50px;
+    box-sizing: border-box;
+    color: white;
+    text-transform: uppercase;
+    font-size: 14px;
+    cursor: pointer;
 }

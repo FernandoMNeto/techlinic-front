@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -16,7 +16,8 @@ import { ConsultComponent } from './components/consult/consult.component';
 import { RelatorysComponent } from './components/relatorys/relatorys.component';
 import { RegisterPacientComponent } from './components/pacients-components/register-pacient/register-pacient.component';
 import { PacientComponent } from './components/pacients-components/pacient/pacient.component';
-
+import { AutheticationGuard } from './guards/authetication.guard';
+import { TokenInterceptor } from './interceptors/token.interceptor';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { PacientComponent } from './components/pacients-components/pacient/pacie
     ConsultComponent,
     RelatorysComponent,
     RegisterPacientComponent,
-    RegisterPacientComponent
+    RegisterPacientComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -41,7 +43,10 @@ import { PacientComponent } from './components/pacients-components/pacient/pacie
     ReactiveFormsModule,
     NgToastModule
   ],
-  providers: [],
+  providers: [
+    AutheticationGuard,
+    {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
