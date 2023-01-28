@@ -77,7 +77,7 @@ span{
     padding: 15px;
     color: rgb(255, 255, 255);
     border-radius: 10px;
-    background: linear-gradient(var( --primary-color), #86a0ef);
+    background-color: var(--primary-color);
     border-style: none;
     border-color: white;
     outline: none;
@@ -97,8 +97,4 @@ span{
 
 .btn-login:disabled:hover{
     background: lightgray;
-}
-
-.btn-login:hover {
-    background: linear-gradient(#86a0ef , var( --primary-color)) ;
 }

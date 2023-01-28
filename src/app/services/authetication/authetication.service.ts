@@ -39,10 +39,14 @@ export class AutheticationService {
         if(erro.status == 400) {
           this.toast.error({detail: "Credenciais inválidas!", summary: "nome de usuario ou senha inválidos"});
         }else {
-          this.toast.error({detail: "Não foi possível se conectar com o servidor!", summary: "tente novamente mais tarde!"});
+          this.toast.error({detail: "Não foi possível conectar ao servidor!", summary: "Tente novamente mais tarde!"});
         }
       }
     });
+  }
+
+  verifyToken() {
+    return this.http.get(this.baseUrl + 'isTokenValid')
   }
 
 }

@@ -1,10 +1,10 @@
 <div class="page">
     <Header class="header">
-        <p>Cadastro de pacientes</p>
-        <div class="back-button">
+        <div routerLink="/pacient" class="back-button">
             <span class="material-symbols-outlined" style="font-weight: 800;">reply</span>
             <p>voltar</p>
         </div>
+        <p>Cadastro de pacientes</p>
     </Header>
     <form [formGroup]="pacientForm" class="form" (ngSubmit)="submit()">
 
@@ -33,7 +33,7 @@
 
             <div class="name">
                 <label>Telefone</label>
-                <input formControlName="phone" type="tel">
+                <input formControlName="phone" mask="(00) 00000-0000" type="text">
             </div>
 
         </div>
@@ -42,7 +42,7 @@
 
             <div class="name">
                 <label>CPF</label>
-                <input formControlName="cpf" type="text">
+                <input formControlName="cpf" mask="000.000.000-00" type="text">
             </div>
             <div class="name">
                 <label>Data de nascimento</label>
@@ -56,32 +56,32 @@
         <div class="item-container">
             <div class="item">
                 <label>CEP</label>
-                <input (blur)="findCep()" formControlName="cep" type="text">
+                <input (blur)="findCep()" mask="00000-000" formControlName="cep" type="text">
             </div>
             <div class="street">
                 <label>Cidade</label>
-                <input formControlName="city" type="text">
+                <input readonly formControlName="city" type="text">
             </div>
         </div>
         <div class="item-container">
             <div class="street">
                 <label>Rua</label>
-                <input formControlName="street" type="text">
+                <input readonly formControlName="street" type="text">
             </div>
             <div class="item">
                 <label>Número</label>
-                <input formControlName="number" type="text">
+                <input formControlName="number" mask="0000" type="text">
             </div>
         </div>
 
         <div class="item-container">
             <div class="street">
                 <label>Bairro</label>
-                <input formControlName="district" type="text">
+                <input readonly formControlName="district" type="text">
             </div>
             <div class="item">
                 <label>Estado</label>
-                <input formControlName="state" type="text">
+                <input readonly formControlName="state" type="text">
             </div>
         </div>
 

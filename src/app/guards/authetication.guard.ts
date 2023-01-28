@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
 import { Observable } from 'rxjs';
+import { AutheticationService } from '../services/authetication/authetication.service';
 import { TokenService } from '../services/token/token.service';
 
 @Injectable({
@@ -11,7 +12,7 @@ export class AutheticationGuard implements CanActivate {
 
   constructor(
     private router: Router,
-    private tokenService: TokenService,
+    private authService: AutheticationService,
     private toast: NgToastService
   ) { }
 
@@ -19,11 +20,13 @@ export class AutheticationGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-      if(this.tokenService.isLoggedIn()) {
-        return true;
-      }
-      
-      this.toast.info({detail: "Token inválido!", summary: "Realize o login novamente"});
-      return this.router.navigate(['login']);
+      this.authService.verifyToken().subscribe({
+        error: () => {
+          this.toast.info({detail: "Token inspirado!", summary: "Realize o login novamente"});
+          return this.router.navigate(['/login']);
+        }
+      })
+
+      return true;
   }
 }

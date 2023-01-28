@@ -18,6 +18,7 @@ import { RegisterPacientComponent } from './components/pacients-components/regis
 import { PacientComponent } from './components/pacients-components/pacient/pacient.component';
 import { AutheticationGuard } from './guards/authetication.guard';
 import { TokenInterceptor } from './interceptors/token.interceptor';
+import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    NgToastModule
+    NgToastModule, 
+    NgxMaskModule.forRoot()
   ],
   providers: [
     AutheticationGuard,
