@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { SearchPacientComponent } from '../../dialogs/search-pacient/search-pacient.component';
+import { SearchPatientComponent } from '../../dialogs/search-patient/search-patient.component';
 
 @Component({
-  selector: 'app-pacient',
-  templateUrl: './pacient.component.html',
-  styleUrls: ['./pacient.component.css']
+  selector: 'app-patient',
+  templateUrl: './patient.component.html',
+  styleUrls: ['./patient.component.css']
 })
-export class PacientComponent implements OnInit {
+export class PatientComponent implements OnInit {
 
   menuStatus: number = 1;
 
@@ -23,7 +23,7 @@ export class PacientComponent implements OnInit {
   }
 
   openSearchDialog() {
-    this.dialog.open(SearchPacientComponent);
+    this.dialog.open(SearchPatientComponent);
   }
 
 }

@@ -1,12 +1,12 @@
 <div class="page">
     <Header class="header">
-        <div routerLink="/pacient" class="back-button">
+        <div routerLink="/patient" class="back-button">
             <span class="material-symbols-outlined" style="font-weight: 800;">reply</span>
             <p>voltar</p>
         </div>
-        <p>Cadastro de pacientes</p>
+        <p>Cadastro de patientes</p>
     </Header>
-    <form [formGroup]="pacientForm" class="form" (ngSubmit)="submit()">
+    <form [formGroup]="patientForm" class="form" (ngSubmit)="submit()">
 
         <label>Dados pessoais</label>
 
@@ -92,6 +92,6 @@
             </div>
         </div>
 
-        <button class="button" [disabled]="!pacientForm.valid" type="submit">Cadastrar</button>
+        <button class="button" [disabled]="!patientForm.valid" type="submit">Cadastrar</button>
     </form>
 </div>

@@ -14,16 +14,16 @@ import { DoctorComponent } from './components/doctor-components/doctor/doctor.co
 import { NgToastModule } from 'ng-angular-popup';
 import { ConsultComponent } from './components/consult/consult.component';
 import { RelatorysComponent } from './components/relatorys/relatorys.component';
-import { RegisterPacientComponent } from './components/pacients-components/register-pacient/register-pacient.component';
-import { PacientComponent } from './components/pacients-components/pacient/pacient.component';
+import { RegisterPatientComponent } from './components/patients-components/register-patient/register-patient.component';
+import { PatientComponent } from './components/patients-components/patient/patient.component';
 import { AutheticationGuard } from './guards/authetication.guard';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { NgxMaskModule } from 'ngx-mask';
-import { FindPacientComponent } from './components/pacients-components/find-pacient/find-pacient.component';
-import { RecordPacientComponent } from './components/pacients-components/record-pacient/record-pacient.component';
+import { FindPatientComponent } from './components/patients-components/find-patient/find-patient.component';
+import { RecordPatientComponent } from './components/patients-components/record-patient/record-patient.component';
 import { ConfirmationDialogComponent } from './components/dialogs/confirmation-dialog/confirmation-dialog.component';
 import { MatModule } from './modules/mat/mat.module';
-import { SearchPacientComponent } from './components/dialogs/search-pacient/search-pacient.component';
+import { SearchPatientComponent } from './components/dialogs/search-patient/search-patient.component';
 
 
 
@@ -35,15 +35,15 @@ import { SearchPacientComponent } from './components/dialogs/search-pacient/sear
     SidebarComponent,
     SchedulesComponent,
     DoctorComponent,
-    PacientComponent,
+    PatientComponent,
     ConsultComponent,
     RelatorysComponent,
-    RegisterPacientComponent,
-    RegisterPacientComponent,
-    FindPacientComponent,
-    RecordPacientComponent,
+    RegisterPatientComponent,
+    RegisterPatientComponent,
+    FindPatientComponent,
+    RecordPatientComponent,
     ConfirmationDialogComponent,
-    SearchPacientComponent,
+    SearchPatientComponent,
   ],
   imports: [
     BrowserModule,

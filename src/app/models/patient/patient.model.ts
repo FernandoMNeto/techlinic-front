@@ -1,4 +1,4 @@
-export class Pacient {
+export class Patient {
     firstName: string = '';
     lastName: string = '';
     cpf: string = '';
