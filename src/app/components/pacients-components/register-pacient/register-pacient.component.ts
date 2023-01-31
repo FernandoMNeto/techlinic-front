@@ -27,18 +27,18 @@ export class RegisterPacientComponent implements OnInit {
 
   createForm(pacient: Pacient) {
     this.pacientForm = this.formBuilder.group({
-      firstName: [pacient.firstName, [Validators.required]],
-      lastName: [pacient.lastName, [Validators.required]],
-      cpf: [pacient.cpf, [Validators.required]],
-      bornDate: [pacient.bornDate, [Validators.required]],
-      phone: [pacient.phone, [Validators.required]],
-      email: [pacient.email, [Validators.required]],
-      cep: [pacient.cep, [Validators.required]],
-      district: [pacient.district, [Validators.required]],
-      street: [pacient.street, [Validators.required]],
-      city: [pacient.city, [Validators.required]],
-      state: [pacient.state, [Validators.required]],
-      number: [pacient.number, Validators.required],
+      firstName: [pacient.firstName, Validators.required],
+      lastName: [pacient.lastName, Validators.required],
+      cpf: [pacient.cpf, Validators.required],
+      bornDate: [pacient.bornDate, Validators.required],
+      phone: [pacient.phone, Validators.required],
+      email: [pacient.email, Validators.required],
+      cep: [pacient.cep, Validators.required],
+      district: [pacient.district, Validators.required],
+      street: [pacient.street, Validators.required],
+      city: [pacient.city, Validators.required],
+      state: [pacient.state, Validators.required],
+      number: [pacient.number, [Validators.required, Validators.maxLength(4)]],
       complement: [pacient.complement, Validators.required]
     })
   }

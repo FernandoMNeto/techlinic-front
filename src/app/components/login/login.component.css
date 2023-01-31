@@ -16,7 +16,7 @@
     align-items: center;
     justify-content: center;
     border-radius: 25px;
-    background-color: rgb(255, 255, 255);
+    background-color: rgba(255, 255, 255, 0.848);
 }
 
 @media (max-width: 900px) {

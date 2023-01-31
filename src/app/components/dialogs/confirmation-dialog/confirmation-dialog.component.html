@@ -1,0 +1,9 @@
+<div class="flex">
+    <div mat-dialog-content>
+        <p>{{ data }}</p>
+    </div>
+    <div class="buttons" mat-dialog-content>
+        <button mat-button (click)="onConfirm(false)">Não</button>
+        <button class="yes" mat-button (click)="onConfirm(true)">Sim</button>
+    </div>
+</div>

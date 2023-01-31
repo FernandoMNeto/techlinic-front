@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
 import { environment } from 'src/environments/environment';
 
@@ -12,9 +13,9 @@ export class PacientService {
 
   constructor(
     private http: HttpClient,
+    private router: Router,
     private toast: NgToastService
   ) { }
-
 
   registerPacient(pacient: any) {
     this.http.post(this.baseUrl + '/register', {
@@ -41,10 +42,24 @@ export class PacientService {
         this.toast.success({detail: "Paciente cadastrado com sucesso!"});
       },
       error: (erro) => {
-        this.toast.error({detail: "Não foi possível cadastrar o paciente!", summary: erro.error.details})
+        this.toast.error({detail: "Não foi possível cadastrar o paciente!", summary: erro.error})
       }
     })
+  }
 
+  findPacientByCPF(cpf: string) {
+    this.http.get(this.baseUrl + '/find', { 
+      params: {cpf: cpf}
+    }).subscribe({
+      next: (res: any) => {
+        this.router.navigate(['/record/' + res.id]);
+      },
+      error: (erro) => {
+        const cpfFormatted = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/g, "\$1.\$2.\$3\-\$4");
+        this.toast.error({detail: `Paciente não cadastrado com o CPF: ${cpfFormatted}`});
+      } // 
+    });
+    
   }
 
 }

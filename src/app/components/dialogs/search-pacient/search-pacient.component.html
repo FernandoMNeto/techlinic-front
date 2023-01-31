@@ -1,0 +1,9 @@
+<div class="card">
+    <div class="header"><p>Buscar paciente</p></div>
+
+    <div class="content">
+        <p>Informe o CPF:</p>
+        <input [(ngModel)] = "cpf" type="text" mask="000.000.000-00">
+        <button type="submit" (click)="findPacientByCPF()">Buscar</button>
+    </div>
+</div>

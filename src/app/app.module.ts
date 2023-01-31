@@ -10,7 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HomeComponent } from './components/home/home.component';
 import { SchedulesComponent } from './components/schedules/schedules.component';
-import { DoctorComponent } from './components/doctor/doctor.component';
+import { DoctorComponent } from './components/doctor-components/doctor/doctor.component';
 import { NgToastModule } from 'ng-angular-popup';
 import { ConsultComponent } from './components/consult/consult.component';
 import { RelatorysComponent } from './components/relatorys/relatorys.component';
@@ -19,6 +19,13 @@ import { PacientComponent } from './components/pacients-components/pacient/pacie
 import { AutheticationGuard } from './guards/authetication.guard';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { NgxMaskModule } from 'ngx-mask';
+import { FindPacientComponent } from './components/pacients-components/find-pacient/find-pacient.component';
+import { RecordPacientComponent } from './components/pacients-components/record-pacient/record-pacient.component';
+import { ConfirmationDialogComponent } from './components/dialogs/confirmation-dialog/confirmation-dialog.component';
+import { MatModule } from './modules/mat/mat.module';
+import { SearchPacientComponent } from './components/dialogs/search-pacient/search-pacient.component';
+
+
 
 @NgModule({
   declarations: [
@@ -33,7 +40,10 @@ import { NgxMaskModule } from 'ngx-mask';
     RelatorysComponent,
     RegisterPacientComponent,
     RegisterPacientComponent,
-    
+    FindPacientComponent,
+    RecordPacientComponent,
+    ConfirmationDialogComponent,
+    SearchPacientComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +53,8 @@ import { NgxMaskModule } from 'ngx-mask';
     FormsModule,
     ReactiveFormsModule,
     NgToastModule, 
-    NgxMaskModule.forRoot()
+    NgxMaskModule.forRoot(),
+    MatModule,
   ],
   providers: [
     AutheticationGuard,
