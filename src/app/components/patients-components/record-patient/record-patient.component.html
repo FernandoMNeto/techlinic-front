@@ -1,5 +1,56 @@
 <div class="page">
-    <p>{{ patient?.contact?.email }}</p>
-    <p>{{ patient?.address?.cep }}</p>
-    <p>{{ string }}</p>
+    <div class="header">
+        <h2 class="title">Prontuário {{ patient?.firstName }} {{ patient?.lastName }}</h2>
+    </div>
+    <div class="record">
+        <P class="subtitle">Dados pessoais</P>
+        <div class="section">
+
+            <div class="subsection">
+                <p class="name">Nome</p>
+                <p class="info">{{ patient?.firstName }} {{patient?.lastName}}</p>
+                <p class="name">CPF</p>
+                <p class="info">{{ patient?.cpf }}</p>
+            </div>
+            <div class="subsection">
+                <P class="name">Idade</P>
+                <p class="info">{{ patient?.age }} anos</p>
+                <p class="name">Data de nascimento</p>
+                <p class="info">{{ patient?.bornAt | date : 'dd/MM/yyyy' }}</p>
+            </div>
+            <div class="subsection">
+                <p class="name">Telefone</p>
+                <p class="info">{{ patient?.contact?.phone }}</p>
+                <p class="name">Email</p>
+                <p class="info">{{ patient?.contact?.email }}</p>
+                <p class="lastModi">Última modificação dos contatos: {{ patient?.contact?.lastModified }}</p>
+            </div>
+
+        </div>
+        <P class="subtitle">Endereço</P>
+        <div class="section">
+            <div class="subsection">
+                <p class="name">CEP</p>
+                <p class="info">{{ patient?.address?.cep }}</p>
+                <p class="name">Cidade</p>
+                <p class="info">{{ patient?.address?.city }}</p>
+            </div>
+            <div class="subsection">
+                <p class="name">Rua</p>
+                <p class="info">{{ patient?.address?.street }}</p>
+                <p class="name">Bairro</p>
+                <p class="info">{{ patient?.address?.district }}</p>
+            </div>
+            <div class="subsection">
+                <p class="name">Número</p>
+                <p class="info">{{ patient?.address?.number }}</p>
+                <p class="name">Estado</p>
+                <p class="info">{{ patient?.address?.state }}</p>
+            </div>
+        </div>
+        <P class="subtitle">Consultas</P>
+        <div class="section">
+            <p *ngFor="let c of consults"></p> 
+        </div>
+    </div>
 </div>

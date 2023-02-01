@@ -1,4 +1,5 @@
 import { Address } from "../address/address.model";
+import { Consult } from "../consult/consult.model";
 import { Contact } from "../contact/contact.model";
 
 export class PatientRecord {
@@ -6,7 +7,8 @@ export class PatientRecord {
     lastName!: string;
     cpf!: string;
     age!: string;
-    bornDate!: Date;
+    bornAt!: string;
     address!: Address;
     contact!: Contact;
+    consults!: Consult
 }

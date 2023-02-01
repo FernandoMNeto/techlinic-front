@@ -24,6 +24,7 @@ import { RecordPatientComponent } from './components/patients-components/record-
 import { ConfirmationDialogComponent } from './components/dialogs/confirmation-dialog/confirmation-dialog.component';
 import { MatModule } from './modules/mat/mat.module';
 import { SearchPatientComponent } from './components/dialogs/search-patient/search-patient.component';
+import { CommonModule } from '@angular/common';
 
 
 
@@ -55,6 +56,7 @@ import { SearchPatientComponent } from './components/dialogs/search-patient/sear
     NgToastModule, 
     NgxMaskModule.forRoot(),
     MatModule,
+    CommonModule
   ],
   providers: [
     AutheticationGuard,
