@@ -1,8 +1,8 @@
 export class Consult {
     id!: string;
-    pacientId!: string;
-    pacientName!: string;
-    pacientCPF!: string;
+    patientId!: string;
+    patientName!: string;
+    patientCPF!: string;
     doctorId!: string;
     doctorName!: string;
     description!: string;

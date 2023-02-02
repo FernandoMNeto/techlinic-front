@@ -63,3 +63,33 @@
     padding: 5px 0px;
     color: rgb(133, 133, 133);
 }
+
+.span {
+    color: rgb(116, 116, 116);
+    font-size: 18px;
+    width: 100%;
+    text-align: center;
+}
+
+.consult {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    color: rgb(116, 116, 116);
+}
+
+.consult>p {
+    width: 20%;
+    text-align: center;
+    padding: 10px 0px 10px 0px;
+}
+
+#tableheader{
+    padding: 0px 0px 10px 0px;
+    font-size: 18px;
+    font-weight: bolder;
+    color: #4169e1fe;
+    letter-spacing: 2px;
+}

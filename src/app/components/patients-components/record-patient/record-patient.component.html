@@ -5,7 +5,6 @@
     <div class="record">
         <P class="subtitle">Dados pessoais</P>
         <div class="section">
-
             <div class="subsection">
                 <p class="name">Nome</p>
                 <p class="info">{{ patient?.firstName }} {{patient?.lastName}}</p>
@@ -25,7 +24,6 @@
                 <p class="info">{{ patient?.contact?.email }}</p>
                 <p class="lastModi">Última modificação dos contatos: {{ patient?.contact?.lastModified }}</p>
             </div>
-
         </div>
         <P class="subtitle">Endereço</P>
         <div class="section">
@@ -50,7 +48,19 @@
         </div>
         <P class="subtitle">Consultas</P>
         <div class="section">
-            <p *ngFor="let c of consults"></p> 
+            <div class="consult" id="tableheader">
+                <P>Código</P>
+                <P>Nome do médico</P>
+                <P>Data</P>
+                <P>Horário</P>
+            </div>
+            <p class="span" *ngIf="consults.length == 0">O paciente não possui consultas</p>
+            <div *ngFor="let consult of consults" class="consult">
+                <P>{{ consult.id }}</P>
+                <P>{{ consult.doctorName }}</P>
+                <P>{{ consult.date }}</P>
+                <P>{{ consult.time }}</P>
+            </div>
         </div>
     </div>
 </div>
