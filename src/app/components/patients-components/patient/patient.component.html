@@ -8,8 +8,12 @@
         </div>
         <div class="content">
             <div class="container-itens">
+                <div class="item" routerLink="/all-patients">
+                    <span class="material-symbols-outlined">group</span>
+                    <p class="item-name">Vizualizar todos pacientes</p>
+                </div>
                 <div class="item" routerLink="/register-patient">
-                    <span class="material-symbols-outlined">add</span>
+                    <span class="material-symbols-outlined">group_add</span>
                     <p class="item-name">Cadastrar paciente</p>
                 </div>
                 <div class="item" (click)="openSearchDialog()">
@@ -19,11 +23,7 @@
                 <div class="item">
                     <span class="material-symbols-outlined">edit</span>
                     <p class="item-name">Atualizar cadastro</p>
-                </div>
-                <div class="item">
-                    <span class="material-symbols-outlined">cancel</span>
-                    <p class="item-name">Excluir paciente</p>
-                </div>
+                </div>                
             </div>
         </div>
         <span *ngIf="menuStatus<0" (click)="menuAction()" class="material-symbols-outlined" id="menu-icon">menu</span>

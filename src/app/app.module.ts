@@ -19,12 +19,12 @@ import { PatientComponent } from './components/patients-components/patient/patie
 import { AutheticationGuard } from './guards/authetication.guard';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { NgxMaskModule } from 'ngx-mask';
-import { FindPatientComponent } from './components/patients-components/find-patient/find-patient.component';
 import { RecordPatientComponent } from './components/patients-components/record-patient/record-patient.component';
 import { ConfirmationDialogComponent } from './components/dialogs/confirmation-dialog/confirmation-dialog.component';
 import { MatModule } from './modules/mat/mat.module';
 import { SearchPatientComponent } from './components/dialogs/search-patient/search-patient.component';
 import { CommonModule } from '@angular/common';
+import { AllPatientsComponent } from './components/patients-components/all-patients/all-patients/all-patients.component';
 
 
 
@@ -41,10 +41,10 @@ import { CommonModule } from '@angular/common';
     RelatorysComponent,
     RegisterPatientComponent,
     RegisterPatientComponent,
-    FindPatientComponent,
     RecordPatientComponent,
     ConfirmationDialogComponent,
     SearchPatientComponent,
+    AllPatientsComponent,
   ],
   imports: [
     BrowserModule,

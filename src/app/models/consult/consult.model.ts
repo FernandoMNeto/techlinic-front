@@ -12,6 +12,3 @@ export class Consult {
     date!: string
 }
 
-export class Consults {
-    consult!: Consult[];
-}

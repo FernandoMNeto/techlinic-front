@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Consult, Consults } from 'src/app/models/consult/consult.model';
+import { Consult } from 'src/app/models/consult/consult.model';
 import { PatientRecord } from 'src/app/models/patient/patientRecord.model';
 import { PatientService } from 'src/app/services/patient/patient.service';
 
@@ -15,11 +15,10 @@ export class RecordPatientComponent implements OnInit {
   id: any;
   patient!: PatientRecord | undefined;
   consults!: Consult[]
-  
+  displayedColumns: string[] = ['codigo', 'medico', 'data', 'hora'];
 
   constructor(  
     private activatedRoute: ActivatedRoute,
-    private route: Router,
     private patientService: PatientService
   ) { }
 

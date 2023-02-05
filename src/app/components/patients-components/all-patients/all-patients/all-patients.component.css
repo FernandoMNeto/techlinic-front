@@ -1,0 +1,91 @@
+.page {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    width: 100vw;
+    height: 8vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: var(--primary-color);
+}
+
+.content {
+    width: 90vw;
+    height: 92vh;
+    padding: 20px 0px;
+    box-sizing: border-box;
+}
+
+table {
+    width: 100%;
+}
+
+.filter {
+    width: 100%;
+}
+
+.del-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    background-color: red;
+    border-radius: 20px;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.edit-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    background-color: var(--primary-color);
+    border-radius: 20px;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-container{
+    width: 100px;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.back-button {
+    width: 110px;
+    height: 5vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    letter-spacing: 2px;
+    position: absolute;
+    left: 40px;
+    border: 2px solid white;
+    border-radius: 10px;
+    box-sizing: border-box;
+    color: white;
+    text-transform: uppercase;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.back-button:hover{
+    background-color: white;
+    color: var(--primary-color);
+}

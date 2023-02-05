@@ -1,5 +1,9 @@
 <div class="page">
     <div class="header">
+        <div routerLink="/patient" class="back-button">
+            <span class="material-symbols-outlined" style="font-weight: 800;">reply</span>
+            <p>voltar</p>
+        </div>
         <h2 class="title">Prontuário {{ patient?.firstName }} {{ patient?.lastName }}</h2>
     </div>
     <div class="record">
@@ -47,20 +51,34 @@
             </div>
         </div>
         <P class="subtitle">Consultas</P>
-        <div class="section">
-            <div class="consult" id="tableheader">
-                <P>Código</P>
-                <P>Nome do médico</P>
-                <P>Data</P>
-                <P>Horário</P>
-            </div>
-            <p class="span" *ngIf="consults.length == 0">O paciente não possui consultas</p>
-            <div *ngFor="let consult of consults" class="consult">
-                <P>{{ consult.id }}</P>
-                <P>{{ consult.doctorName }}</P>
-                <P>{{ consult.date }}</P>
-                <P>{{ consult.time }}</P>
-            </div>
+        <div>
+            <table mat-table [dataSource]="consults" class="mat-elevation-z8">
+
+                <ng-container matColumnDef="codigo">
+                  <th mat-header-cell *matHeaderCellDef> código </th>
+                  <td mat-cell *matCellDef="let data"> {{data?.id}} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="medico">
+                  <th mat-header-cell *matHeaderCellDef> médico </th>
+                  <td mat-cell *matCellDef="let data"> {{data?.doctorName}} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="data">
+                  <th mat-header-cell *matHeaderCellDef> data </th>
+                  <td mat-cell *matCellDef="let data"> {{data?.date}} </td>
+                </ng-container>
+            
+                <ng-container matColumnDef="hora">
+                  <th mat-header-cell *matHeaderCellDef> hora </th>
+                  <td mat-cell *matCellDef="let data"> {{data?.time}} </td>
+                </ng-container>
+              
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+
+              <p class="span" *ngIf="consults.length == 0">O paciente não possui consultas cadastradas</p>
         </div>
     </div>
 </div>

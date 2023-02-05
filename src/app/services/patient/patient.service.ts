@@ -68,6 +68,10 @@ export class PatientService {
     return this.http.get<PatientRecord>(`${this.baseUrl}/${id}`);
   }
 
+  findAllPatients() {
+    return this.http.get<PatientRecord[]>(`${this.baseUrl}`);
+  }
+
 } 
 
 

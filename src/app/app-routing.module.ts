@@ -1,9 +1,10 @@
-import { Component, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ConsultComponent } from './components/consult/consult.component';
 import { DoctorComponent } from './components/doctor-components/doctor/doctor.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
+import { AllPatientsComponent } from './components/patients-components/all-patients/all-patients/all-patients.component';
 import { PatientComponent } from './components/patients-components/patient/patient.component';
 import { RecordPatientComponent } from './components/patients-components/record-patient/record-patient.component';
 import { RegisterPatientComponent } from './components/patients-components/register-patient/register-patient.component';
@@ -21,7 +22,8 @@ const routes: Routes = [
   { path: 'consults', component: ConsultComponent, canActivate: [AutheticationGuard] },
   { path: 'relatorys', component: RelatorysComponent, canActivate: [AutheticationGuard] },
   { path: 'register-patient', component: RegisterPatientComponent, canActivate: [AutheticationGuard] },
-  { path: 'record/:id', component: RecordPatientComponent, canActivate: [AutheticationGuard]}
+  { path: 'record/:id', component: RecordPatientComponent, canActivate: [AutheticationGuard] },
+  { path: 'all-patients', component:AllPatientsComponent, canActivate: [AutheticationGuard] }
 ];
 
 @NgModule({
