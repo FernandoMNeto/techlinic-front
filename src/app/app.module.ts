@@ -24,7 +24,11 @@ import { ConfirmationDialogComponent } from './components/dialogs/confirmation-d
 import { MatModule } from './modules/mat/mat.module';
 import { SearchPatientComponent } from './components/dialogs/search-patient/search-patient.component';
 import { CommonModule } from '@angular/common';
-import { AllPatientsComponent } from './components/patients-components/all-patients/all-patients/all-patients.component';
+import { AllPatientsComponent } from './components/patients-components/all-patients/all-patients.component';
+import { CpfPipe } from './pipes/cpf/cpf.pipe';
+import { CepPipe } from './pipes/cep/cep.pipe';
+import { PhonePipe } from './pipes/phone/phone.pipe';
+import { UpdatePatientComponent } from './components/patients-components/update-patient/update-patient.component';
 
 
 
@@ -45,6 +49,10 @@ import { AllPatientsComponent } from './components/patients-components/all-patie
     ConfirmationDialogComponent,
     SearchPatientComponent,
     AllPatientsComponent,
+    CpfPipe,
+    CepPipe,
+    PhonePipe,
+    UpdatePatientComponent,
   ],
   imports: [
     BrowserModule,

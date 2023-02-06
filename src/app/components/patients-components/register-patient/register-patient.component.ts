@@ -38,7 +38,7 @@ export class RegisterPatientComponent implements OnInit {
       city: [patient.city, Validators.required],
       state: [patient.state, Validators.required],
       number: [patient.number, [Validators.required, Validators.maxLength(4)]],
-      complement: [patient.complement, Validators.required]
+      complement: [patient.complement]
     })
   }
 

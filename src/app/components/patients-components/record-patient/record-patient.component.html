@@ -13,7 +13,7 @@
                 <p class="name">Nome</p>
                 <p class="info">{{ patient?.firstName }} {{patient?.lastName}}</p>
                 <p class="name">CPF</p>
-                <p class="info">{{ patient?.cpf }}</p>
+                <p class="info">{{ patient?.cpf | cpf}}</p>
             </div>
             <div class="subsection">
                 <P class="name">Idade</P>
@@ -23,7 +23,7 @@
             </div>
             <div class="subsection">
                 <p class="name">Telefone</p>
-                <p class="info">{{ patient?.contact?.phone }}</p>
+                <p class="info">{{ patient?.contact?.phone | phone }}</p>
                 <p class="name">Email</p>
                 <p class="info">{{ patient?.contact?.email }}</p>
                 <p class="lastModi">Última modificação dos contatos: {{ patient?.contact?.lastModified }}</p>
@@ -33,7 +33,7 @@
         <div class="section">
             <div class="subsection">
                 <p class="name">CEP</p>
-                <p class="info">{{ patient?.address?.cep }}</p>
+                <p class="info">{{ patient?.address?.cep | cep }}</p>
                 <p class="name">Cidade</p>
                 <p class="info">{{ patient?.address?.city }}</p>
             </div>
@@ -52,33 +52,35 @@
         </div>
         <P class="subtitle">Consultas</P>
         <div>
+            <div class="example-container mat-elevation-z8">
+    
             <table mat-table [dataSource]="consults" class="mat-elevation-z8">
 
                 <ng-container matColumnDef="codigo">
-                  <th mat-header-cell *matHeaderCellDef> código </th>
-                  <td mat-cell *matCellDef="let data"> {{data?.id}} </td>
+                    <th mat-header-cell *matHeaderCellDef> código </th>
+                    <td mat-cell *matCellDef="let data"> {{data?.id}} </td>
                 </ng-container>
-              
+
                 <ng-container matColumnDef="medico">
-                  <th mat-header-cell *matHeaderCellDef> médico </th>
-                  <td mat-cell *matCellDef="let data"> {{data?.doctorName}} </td>
+                    <th mat-header-cell *matHeaderCellDef> médico </th>
+                    <td mat-cell *matCellDef="let data"> {{data?.doctorName}} </td>
                 </ng-container>
-              
+
                 <ng-container matColumnDef="data">
-                  <th mat-header-cell *matHeaderCellDef> data </th>
-                  <td mat-cell *matCellDef="let data"> {{data?.date}} </td>
+                    <th mat-header-cell *matHeaderCellDef> data </th>
+                    <td mat-cell *matCellDef="let data"> {{data?.date}} </td>
                 </ng-container>
-            
+
                 <ng-container matColumnDef="hora">
-                  <th mat-header-cell *matHeaderCellDef> hora </th>
-                  <td mat-cell *matCellDef="let data"> {{data?.time}} </td>
+                    <th mat-header-cell *matHeaderCellDef> hora </th>
+                    <td mat-cell *matCellDef="let data"> {{data?.time}} </td>
                 </ng-container>
-              
+
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-              </table>
+            </table>
 
-              <p class="span" *ngIf="consults.length == 0">O paciente não possui consultas cadastradas</p>
+            <p class="span" *ngIf="consults.length == 0">O paciente não possui consultas cadastradas</p>
         </div>
     </div>
 </div>

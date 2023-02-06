@@ -8,7 +8,7 @@
     </div>
     <div class="content">
         <mat-form-field class="filter">
-            <mat-label>Filtro</mat-label>
+            <mat-label>Buscar</mat-label>
             <input matInput (keyup)="applyFilter($event)" placeholder="Busque pelo nome, cpf ou telefone" #input>
         </mat-form-field>
         <div class="mat-elevation-z8">
@@ -19,29 +19,35 @@
                 </ng-container>
                 <ng-container matColumnDef="nome">
                     <th mat-header-cell *matHeaderCellDef> Nome </th>
-                    <td mat-cell *matCellDef="let patient">{{ patient.firstName }}</td>
+                    <td mat-cell *matCellDef="let patient">{{ patient.firstName | uppercase }} {{ patient.lastName | uppercase }}</td>
                 </ng-container>
                 <ng-container matColumnDef="cpf">
                     <th mat-header-cell *matHeaderCellDef> CPF </th>
-                    <td mat-cell *matCellDef="let patient">{{ patient.cpf }}</td>
+                    <td mat-cell *matCellDef="let patient">{{ patient.cpf | cpf}}</td>
                 </ng-container>
                 <ng-container matColumnDef="telefone">
                     <th mat-header-cell *matHeaderCellDef> Telefone </th>
-                    <td mat-cell *matCellDef="let patient">{{ patient.contact.phone }}</td>
+                    <td mat-cell *matCellDef="let patient">{{ patient.contact.phone | phone }}</td>
                 </ng-container>
                 <ng-container matColumnDef="opcoes">
-                    <th mat-header-cell *matHeaderCellDef> opções </th>
+                    <th mat-header-cell *matHeaderCellDef> Opções </th>
                     <td mat-cell *matCellDef="let patient">
                         <div class="btn-container">
-                            <button class="edit-button">
+                            <button class="edit-button" (click)="updatePatient(patient)">
                                 <span class="material-symbols-outlined">
                                     edit
                                 </span>
                             </button>
-                            <button class="del-button">
+                            <button class="del-button" (click)="deletePatient(patient.id)">
                                 <span class="material-symbols-outlined">
                                     delete
                                 </span>
+                            </button>
+                            <button class="new" (click)="deletePatient(patient.id)">
+                                <span class="material-symbols-outlined">
+                                    add
+                                </span>
+                                <p>agendamento</p>
                             </button>
                         </div>
                     </td>
@@ -49,11 +55,9 @@
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
             </table>
-
-            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
-                aria-label="Select page of periodic elements">
+            <mat-paginator [pageSizeOptions]="[10, 20]" showFirstLastButtons
+                aria-label="">
             </mat-paginator>
-
         </div>
     </div>
 </div>

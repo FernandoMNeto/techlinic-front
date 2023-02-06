@@ -1,8 +1,10 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { PatientRecord } from 'src/app/models/patient/patientRecord.model';
 import { PatientService } from 'src/app/services/patient/patient.service';
+import { UpdatePatientComponent } from '../update-patient/update-patient.component';
 
 @Component({
   selector: 'app-all-patients',
@@ -18,6 +20,7 @@ export class AllPatientsComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(
+    private dialog: MatDialog,
     private PatientService: PatientService
   ) {}
   
@@ -35,6 +38,18 @@ export class AllPatientsComponent implements OnInit, AfterViewInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.patients.filter = filterValue.trim().toLowerCase();
+  }
+
+  updatePatient(id: string) {
+    this.dialog.open(UpdatePatientComponent, {
+      data: id,
+      width: '1500px',
+      height: '500px'
+    })
+  }
+  
+  deletePatient(id: string) {
+    console.log(id);
   }
 
 }
