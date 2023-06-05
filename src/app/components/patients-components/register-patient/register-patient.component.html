@@ -1,3 +1,4 @@
+<app-spinner *ngIf="loading == true"></app-spinner>
 <div class="page">
     <Header class="header">
         <div routerLink="/patient" class="back-button">
@@ -91,7 +92,6 @@
                 <input formControlName="complement" type="text">
             </div>
         </div>
-
-        <button class="button" [disabled]="!patientForm.valid" type="submit">Cadastrar</button>
+    <button class="button" [disabled]="!patientForm.valid" type="submit">Cadastrar</button>
     </form>
 </div>

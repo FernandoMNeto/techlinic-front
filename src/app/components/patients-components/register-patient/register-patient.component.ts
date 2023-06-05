@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
 import { Patient } from 'src/app/models/patient/patient.model';
 import { PatientService } from 'src/app/services/patient/patient.service';
@@ -13,6 +14,7 @@ import { CepService } from 'src/app/services/viaCep/cep.service';
 export class RegisterPatientComponent implements OnInit { 
 
   patientForm!: FormGroup; 
+  loading = false;
  
   constructor(
     private formBuilder: FormBuilder,
@@ -43,17 +45,20 @@ export class RegisterPatientComponent implements OnInit {
   }
 
   findCep() {
+  this.loading = true;
    this.cepService.findCep(this.patientForm.value.cep).subscribe({
     next: (cepData: any) => {
-
       if(cepData.localidade == null) {
         this.toast.error({detail: "CEP inválido!"});
       }else {
         this.fillCepInfo(cepData)
       }
+      this.loading = false;
     },
     error: () => {
       this.toast.error({detail: "CEP inválido!"});
+      this.clearCepInfo();
+      this.loading = false;
     }
    })
   }
@@ -74,6 +79,24 @@ export class RegisterPatientComponent implements OnInit {
         state: cepData.uf,
         complement: cepData.complemento
       })
+  }
+
+  clearCepInfo() {
+    this.patientForm.setValue({
+      firstName: this.patientForm.value.firstName,
+      lastName: this.patientForm.value.lastName,
+      cpf: this.patientForm.value.cpf,
+      bornDate: this.patientForm.value.bornDate,
+      phone: this.patientForm.value.phone,
+      cep: this.patientForm.value.cep,
+      email: this.patientForm.value.email,
+      city: '',
+      street: '',
+      number: this.patientForm.value.number,
+      district: '',
+      state: '',
+      complement: ''
+    })
   }
 
   submit() {

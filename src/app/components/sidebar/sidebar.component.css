@@ -18,8 +18,8 @@
     }
 
     .logo{
-        width: 130px;
-        height: 130px;
+        width: 110px;
+        height: 110px;
         margin-bottom: 20px;
     }
 
@@ -39,6 +39,12 @@
     cursor: pointer;
     border-radius: 20px;
     color: white;
+}
+
+button.button-custom:hover,
+button.button-custom:active
+{
+    background-color: red;
 }
 
 .item-name{

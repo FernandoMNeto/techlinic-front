@@ -7,11 +7,18 @@ export class CpfPipe implements PipeTransform {
 
   transform(value: any, ...args: unknown[]): unknown {
 
-    let input = value;
+    const input = value;
+    var result = ''
 
-    let result = input.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/g, '\$1.\$2.\$3\-\$4');
-
-    return result;
+    if (input != undefined) {
+      if (input.length < 11) {
+        return input
+      } else {
+        result = input.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '\$1.\$2.\$3\-\$4');
+        return result;
+      }
+    }
+    return input;
   }
 
 }

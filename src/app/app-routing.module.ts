@@ -9,8 +9,10 @@ import { PatientComponent } from './components/patients-components/patient/patie
 import { RecordPatientComponent } from './components/patients-components/record-patient/record-patient.component';
 import { RegisterPatientComponent } from './components/patients-components/register-patient/register-patient.component';
 import { RelatorysComponent } from './components/relatorys/relatorys.component';
-import { SchedulesComponent } from './components/schedules/schedules.component';
+import { SchedulesComponent } from './components/schedule-components/schedules/schedules.component';
 import { AutheticationGuard } from './guards/authetication.guard';
+import { NewScheduleComponent } from './components/schedule-components/new-schedule/new-schedule.component';
+import { RegisterDoctorComponent } from './components/doctor-components/register-doctor/register-doctor.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' },
@@ -23,7 +25,9 @@ const routes: Routes = [
   { path: 'relatorys', component: RelatorysComponent, canActivate: [AutheticationGuard] },
   { path: 'register-patient', component: RegisterPatientComponent, canActivate: [AutheticationGuard] },
   { path: 'record/:id', component: RecordPatientComponent, canActivate: [AutheticationGuard] },
-  { path: 'all-patients', component:AllPatientsComponent, canActivate: [AutheticationGuard] }
+  { path: 'all-patients', component: AllPatientsComponent, canActivate: [AutheticationGuard] },
+  { path: 'new-schedule', component: NewScheduleComponent, canActivate: [AutheticationGuard] },
+  { path: 'register-doctor', component: RegisterDoctorComponent, canActivate: [AutheticationGuard] }
 ];
 
 @NgModule({

@@ -2,8 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
-import { Observable } from 'rxjs';
-import { PatientComponent } from 'src/app/components/patients-components/patient/patient.component';
 import { PatientRecord } from 'src/app/models/patient/patientRecord.model';
 import { environment } from 'src/environments/environment';
 
@@ -21,7 +19,8 @@ export class PatientService {
   ) { }
 
   registerPatient(patient: any) {
-    this.http.post(this.baseUrl + '/register', {
+    this.http.post<PatientRecord>(this.baseUrl + '/register',{
+      observer: 'response',
       "cpf": patient.cpf,
       "firstName": patient.firstName,
       "lastName": patient.lastName,
@@ -41,11 +40,12 @@ export class PatientService {
         "complement": patient.complement
       },
     }).subscribe({
-      next: (res) => {
+      next: (response) => {
+        this.router.navigate([`/record/${response.id}`])
         this.toast.success({detail: "Paciente cadastrado com sucesso!"});
       },
       error: (erro) => {
-        this.toast.error({detail: "Não foi possível cadastrar o paciente!", summary: erro.error})
+        this.toast.error({detail: "Não foi possível cadastrar o paciente!", summary: erro.error[1]})
       }
     })
   }

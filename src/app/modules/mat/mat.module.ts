@@ -33,7 +33,7 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatTabsModule } from '@angular/material/tabs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
-
+import {MAT_DATE_LOCALE} from '@angular/material/core';
 
 
 @NgModule({
@@ -73,6 +73,7 @@ import { BrowserModule } from '@angular/platform-browser';
     ClipboardModule,
     MatStepperModule,
     MatTabsModule,
+    MatNativeDateModule
   ],
   exports: [
     MatAutocompleteModule,
@@ -107,9 +108,11 @@ import { BrowserModule } from '@angular/platform-browser';
     ClipboardModule,
     MatStepperModule,
     MatTabsModule,
+    MatNativeDateModule
   ],
   providers: [
     MatDatepickerModule,
+    {provide: MAT_DATE_LOCALE, useValue: 'pt-BR'},
   ]
 })
 export class MatModule { }

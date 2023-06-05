@@ -1,6 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AutheticationService } from '../../services/authetication/authetication.service';
 
 @Component({
@@ -23,7 +22,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  submit() {
+  submit() {  
     this.autheticationService.submitLogin(this.loginForm.value);
   }
 }

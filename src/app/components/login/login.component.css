@@ -1,5 +1,4 @@
-.main-login {
-    width: 100vw;
+.page {
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -7,94 +6,86 @@
     background-color: var(--primary-color);
 }
 
-
-.card-login {
-    width: 50%;
-    height: 60%;
+.form {
+    width: 40vw;
+    height: 50vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    border-radius: 25px;
-    background-color: rgba(255, 255, 255, 0.848);
-}
-
-@media (max-width: 900px) {
-    .card-login{
-        width: 100%;
-        height: 75%;
-    }
-}
-
-
-
-.card-login>h2 {
-    color: var( --primary-color);
-    letter-spacing: 10px;
-    font-size: 40px;
-}
-
-.textfield {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+    position: relative;
     align-items: center;
-    justify-content: center;
-}
-
-.textfield>input {
-    width: 50%;
-    border: none;
-    padding: 15px;
-    text-align: center;
-    color: var(--primary-color);
-    font-size: 14px;
-    background-color: rgba(255, 255, 255, 0);
-    border-bottom: 2px solid var(--primary-color);
-    outline: none;
-    box-sizing: border-box;
-}
-
-.textfield>label {
-    color: var( --primary-color);
-    font-size: 17px;
-    letter-spacing: 2px;
-    margin-bottom: 10px;
-    margin-top: 30px;
-}
-
-span{
-    color: rgb(255, 0, 0);
-    font-size: 12px;
-}
-
-.textfield>input::placeholder {
-    color: #24858c65;
-}
-
-.btn-login {
-    width: 25%;
-    padding: 15px;
-    color: rgb(255, 255, 255);
+    gap: 30px;
     border-radius: 10px;
-    background-color: var(--primary-color);
-    border-style: none;
-    border-color: white;
-    outline: none;
+    background-color: var(--white);
+}
+
+h2 {
+    font-size: 2em;
+    letter-spacing: 5px;
+    margin-bottom: 20px;
     text-transform: uppercase;
-    font-weight: 900;
-    letter-spacing: 3px;
+    font-weight: bolder;
+    color: var(--primary-color);
+}
+
+.input-box {
+    width: 75%;
+    position: relative;
+    display: flex;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 15px;
+    border-radius: 5px;
+    border: 2px solid var(--primary-color);
+    outline: none;
+    font-size: 14px;
+    color: var(--primary-color);
+}
+
+.input-box input:valid~label,
+.input-box input:focus~label {
+    transform: translateY(-25px);
+    font-size: 14px;
+    padding: 0px 5px;
+}
+
+.input-box label {
+    pointer-events: none;
+    position: absolute;
+    left: 8px;
+    top: 15px;
+    transition: 0.2s;
+    padding: 0px 10px;
+    background-color: white;
+    color: var(--primary-color);
+    letter-spacing: 1px;
+}
+
+.button {
+    box-sizing: border-box;
+    padding: 15px 50px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
-    margin-top: 40px;
+    margin-top: 20px;
+    font-weight: 800;
 }
 
-.btn-login:disabled{
-    background: lightgray;
-    color: gray;
-    border: 1px solid gray;
-    cursor: not-allowed;
+.button::before {
+    background-color: black;
 }
 
-.btn-login:disabled:hover{
-    background: lightgray;
+
+
+@media (max-width: 800px) {
+    .form {
+        width: 90vw;
+        height: 60vh;
+    }
 }

@@ -11,5 +11,7 @@ body{
 }
 
 :root{
-    --primary-color: #4169E1;
+    --primary-color: #0080ff;    ;
+    --white: white;
+    --aa: #4169E1
 }

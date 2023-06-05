@@ -5,6 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { PatientRecord } from 'src/app/models/patient/patientRecord.model';
 import { PatientService } from 'src/app/services/patient/patient.service';
 import { UpdatePatientComponent } from '../update-patient/update-patient.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-all-patients',
@@ -14,24 +15,28 @@ import { UpdatePatientComponent } from '../update-patient/update-patient.compone
 
 export class AllPatientsComponent implements OnInit, AfterViewInit {
 
-  patients =  new MatTableDataSource<PatientRecord>;
+  patients = new MatTableDataSource<PatientRecord>;
   displayedColumns: string[] = ['id', 'nome', 'cpf', 'telefone', 'opcoes'];
+  loading = false;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(
     private dialog: MatDialog,
-    private PatientService: PatientService
-  ) {}
-  
+    private PatientService: PatientService,
+    private router: Router
+  ) { }
+
 
   ngAfterViewInit() {
     this.patients.paginator = this.paginator;
   }
 
   ngOnInit(): void {
+    this.loading = true;
     this.PatientService.findAllPatients().subscribe((res) => {
       this.patients.data = res;
+      this.loading = false;
     })
   }
 
@@ -43,13 +48,28 @@ export class AllPatientsComponent implements OnInit, AfterViewInit {
   updatePatient(id: string) {
     this.dialog.open(UpdatePatientComponent, {
       data: id,
-      width: '1500px',
-      height: '500px'
+      width: '90vw',
+      height: '80vh'
     })
   }
-  
-  deletePatient(id: string) {
-    console.log(id);
+
+  viewPatient(id: string) {
+    this.router.navigate([`/record/${id}`]);
+  }
+
+  sortPatientByFirstName() {
+    this.patients.data = this.patients.data.sort(function(a, b) {
+      const fistOne = a.firstName.toLowerCase();
+      const secondOne = b.firstName.toLowerCase();
+
+      if(fistOne > secondOne) {
+        return 1
+      }
+      if(fistOne < secondOne) {
+        return -1
+      }
+      return 0
+    })
   }
 
 }

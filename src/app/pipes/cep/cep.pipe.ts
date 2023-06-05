@@ -5,12 +5,16 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class CepPipe implements PipeTransform {
 
-  transform(value: any, ...args: unknown[]): unknown {
+  transform(value: string | undefined, ...args: unknown[]): unknown {
 
-    let input = value;
-    let result = input.replace(/(\d{5})(\d{3})/g, '\$1\-\$2');
-
-    return result;
+    if (value != undefined) {
+      if (value.length < 8) {
+        return value
+      } else {
+        return value.replace(/(\d{5})(\d{3})/g, '\$1\-\$2');
+      }
+    }
+    return value;
   }
 
 }

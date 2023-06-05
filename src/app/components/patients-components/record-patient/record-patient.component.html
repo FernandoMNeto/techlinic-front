@@ -79,8 +79,11 @@
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
             </table>
+            <mat-paginator [pageSizeOptions]="[5]" showFirstLastButtons
+            aria-label="">
+            </mat-paginator>
 
-            <p class="span" *ngIf="consults.length == 0">O paciente não possui consultas cadastradas</p>
+            <p class="span" *ngIf="consults.data.length == 0">O paciente não possui consultas cadastradas</p>
         </div>
     </div>
 </div>

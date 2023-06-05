@@ -1,18 +1,14 @@
-<div class="main-login">
-  <form [formGroup]="loginForm" (ngSubmit)="submit()" class="card-login">
-    <h2>Techlinic Login</h2>
-    <div class="textfield">
-      <label for="user">Usuário</label>
-      <input formControlName="username" type="text" name="user" placeholder="Nome de Usuário">
-      <span *ngIf="loginForm.get('username')?.errors?.['required'] && loginForm.get('username')?.touched">* Nome de
-        usuário obrigatório</span>
-    </div>
-    <div class="textfield">
-      <label for="password">Senha</label>
-      <input formControlName="password" type="password" name="password" placeholder="Senha">
-      <span *ngIf="loginForm.get('password')?.errors?.['required'] && loginForm.get('password')?.touched">* Senha
-        obrigatória</span>
-    </div>
-    <button class="btn-login" type="submit" [disabled]="!loginForm.valid">Entrar</button>
+<div class="page">
+  <form class="form" [formGroup]="loginForm" (ngSubmit)="submit()">
+      <h2>Techlinic</h2>
+      <div class="input-box">
+          <input type="text" formControlName="username" required>
+          <label>Usuário</label>
+      </div>
+      <div class="input-box">
+          <input formControlName="password" type="password" required>
+          <label>Senha</label>
+      </div>
+      <button class="button" [disabled]="!loginForm.valid">Entrar</button>
   </form>
 </div>

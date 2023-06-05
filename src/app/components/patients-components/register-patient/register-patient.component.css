@@ -42,12 +42,11 @@
     margin-bottom: 2px;
 }
 
-
 input {
-    padding: 8px;
+    padding: 4px;
     border: 2px solid lightgrey;
     box-sizing: border-box;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .item {

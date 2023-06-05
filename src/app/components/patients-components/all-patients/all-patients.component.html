@@ -1,3 +1,4 @@
+<app-spinner *ngIf="loading == true"></app-spinner>
 <div class="page">
     <div class="header">
         <div routerLink="/patient" class="back-button">
@@ -15,19 +16,19 @@
             <table mat-table [dataSource]="patients">
                 <ng-container matColumnDef="id">
                     <th mat-header-cell *matHeaderCellDef> ID </th>
-                    <td mat-cell *matCellDef="let patient">{{ patient.id }}</td>
+                    <td mat-cell *matCellDef="let patient"><span class="mobile-label">id</span>{{ patient.id }}</td>
                 </ng-container>
                 <ng-container matColumnDef="nome">
                     <th mat-header-cell *matHeaderCellDef> Nome </th>
-                    <td mat-cell *matCellDef="let patient">{{ patient.firstName | uppercase }} {{ patient.lastName | uppercase }}</td>
+                    <td mat-cell *matCellDef="let patient"><span class="mobile-label">nome</span>{{ patient.firstName | uppercase }} {{ patient.lastName | uppercase }}</td>
                 </ng-container>
                 <ng-container matColumnDef="cpf">
                     <th mat-header-cell *matHeaderCellDef> CPF </th>
-                    <td mat-cell *matCellDef="let patient">{{ patient.cpf | cpf}}</td>
+                    <td mat-cell *matCellDef="let patient"><span class="mobile-label">cpf</span>{{ patient.cpf | cpf}}</td>
                 </ng-container>
                 <ng-container matColumnDef="telefone">
                     <th mat-header-cell *matHeaderCellDef> Telefone </th>
-                    <td mat-cell *matCellDef="let patient">{{ patient.contact.phone | phone }}</td>
+                    <td mat-cell *matCellDef="let patient"><span class="mobile-label">telefone</span>{{ patient.contact.phone | phone }}</td>
                 </ng-container>
                 <ng-container matColumnDef="opcoes">
                     <th mat-header-cell *matHeaderCellDef> Opções </th>
@@ -38,16 +39,15 @@
                                     edit
                                 </span>
                             </button>
-                            <button class="del-button" (click)="deletePatient(patient.id)">
+                            <button class="del-button" (click)="viewPatient(patient.id)">
                                 <span class="material-symbols-outlined">
-                                    delete
+                                    medical_information
                                 </span>
                             </button>
-                            <button class="new" (click)="deletePatient(patient.id)">
+                            <button class="calendar-button" (click)="viewPatient(patient.id)">
                                 <span class="material-symbols-outlined">
-                                    add
+                                    event
                                 </span>
-                                <p>agendamento</p>
                             </button>
                         </div>
                     </td>
@@ -55,7 +55,7 @@
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
             </table>
-            <mat-paginator [pageSizeOptions]="[10, 20]" showFirstLastButtons
+            <mat-paginator [pageSizeOptions]="[10]" showFirstLastButtons
                 aria-label="">
             </mat-paginator>
         </div>

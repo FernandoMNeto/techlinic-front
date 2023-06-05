@@ -11,7 +11,6 @@ import { ConfirmationDialogComponent } from '../dialogs/confirmation-dialog/conf
 })
 export class SidebarComponent implements OnInit {
 
-
   constructor(
     private tokenService: TokenService,
     private router: Router,

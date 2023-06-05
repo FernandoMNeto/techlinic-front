@@ -1,4 +1,80 @@
 <div class="page">
-    {{patient.firstName}}
-    {{patient.lastName}}
+    <div class="header">
+        <h2>Atualizar Dados {{ patient.firstName }} {{ patient.lastName }}</h2>
+    </div>
+    <form [formGroup]="updateForm" class="form">
+        <h4>Dados Pessoais</h4>
+        <div class="item-container">
+            <div class="item">
+                <p>Nome</p>
+                <input formControlName="firstName" type="text">
+            </div>
+            <div class="item">
+                <p>Sobrenome</p>
+                <input formControlName="lastName" type="text">
+            </div>
+        </div>
+        <div class="item-container">
+            <div class="item">
+                <p>cpf</p>
+                <input readonly formControlName="cpf" type="text" mask="000.000.000-00">
+            </div>
+            <div class="item">
+                <p>Data nascimento</p>
+                <input formControlName="bornDate" type="date">
+            </div>
+        </div>
+
+        <div class="item-container">
+            <div class="item">
+                <p>Telefone</p>
+                <input formControlName="phone" mask="(00) 00000-0000" type="text">
+            </div>
+            <div class="item">
+                <p>Email</p>
+                <input formControlName="email" type="text">
+            </div>
+        </div>
+        <h4>Endereço</h4>
+        <div class="item-container">
+            <div class="small-item">
+                <p>CEP</p>
+                <input (blur)="findCep()" formControlName="cep" type="text" mask="00000-000">
+            </div>
+            <div class="big-item">
+                <p>Cidade</p>
+                <input readonly formControlName="city" type="text">
+            </div>
+        </div>
+        <div class="item-container-plus">
+            <div class="big-item">
+                <p>Rua</p>
+                <input readonly formControlName="street" type="text">
+            </div>
+            <div class="small-item">
+                <p>Número</p>
+                <input formControlName="number" type="text"> 
+            </div>
+        </div>
+        <div class="item-container-plus">
+            <div class="big-item">
+                <p>Bairro</p>
+                <input readonly formControlName="district" type="text">
+            </div>
+            <div class="small-item">
+                <p>Estado</p>
+                <input readonly formControlName="state" type="text"> 
+            </div>
+        </div>
+        <div>
+            <div class="item" style="width: 100%;">
+                <label>Complemento</label>
+                <input formControlName="complement" type="text">
+            </div>
+        </div>
+    </form>
+    <div class="btn-container">
+        <button (click)="closeDialog()" class="cancel-btn">Cancelar</button>
+        <button class="submit">Atualizar</button>
+    </div>
 </div>
