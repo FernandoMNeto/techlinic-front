@@ -1,0 +1,43 @@
+<app-spinner *ngIf="loading == true"></app-spinner>
+<div class="page">
+    <Header class="header">
+        <div routerLink="/consults" class="back-button">
+            <span class="material-symbols-outlined" style="font-weight: 800;">reply</span>
+            <p>voltar</p>
+        </div>
+        <h2>Consultas do dia</h2>
+    </Header>
+    <div class="content">
+        <div class="table-container">
+            <div class="selected-doctor">
+                <mat-label>Médico: </mat-label>
+                <input type="text" placeholder="Selecione o médico" matInput [matAutocomplete]="auto"
+                    [contentEditable]="true" id="selected-doctor-input">
+                <mat-autocomplete #auto="matAutocomplete" (optionSelected)="doctorSelected($event)">
+                    <mat-option *ngFor="let doctor of doctors" [value]="doctor">
+                        {{doctor.id + " - " +doctor.firstName + " " + doctor.lastName}}
+                    </mat-option>
+                </mat-autocomplete>
+            </div>
+            <table class="table">
+                <th id="id">Horario</th>
+                <th id="name">Paciente</th>
+                <th id="age">Idade</th>
+                <th id="complaint">Motivo da consulta</th>
+                <th id="init">Atendimento</th>
+                <tr class="row" *ngFor="let c of this.consults">
+                    <td class="td" id="id"><span>{{c.time}}</span></td>
+                    <td class="td" id="name"><span>{{c.pacientName}}</span></td>
+                    <td class="td" id="age"><span>{{c.pacientAge}}</span></td>
+                    <td class="td" id="complaint"><span>{{c.complaint}}</span></td>
+                    <td class="td" id="init">
+                        <span>
+                            <button class="consultBtn" routerLink="/consult/{{c.id}}/{{c.pacientName}}" *ngIf="c.situation == 'SCHEDULED' || c.situation == 'CONFIRMED'">Iniciar</button>
+                            <span class="material-symbols-outlined" *ngIf="c.situation != 'SCHEDULED' && c.situation != 'CONFIRMED'">done</span>
+                        </span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

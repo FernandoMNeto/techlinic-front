@@ -25,5 +25,4 @@ export class TokenService {
   isLoggedIn(): boolean {
     return !!localStorage.getItem('token');
   }
-
 }

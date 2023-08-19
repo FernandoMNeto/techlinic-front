@@ -1,3 +1,4 @@
+<app-spinner *ngIf="loading == true"></app-spinner>
 <div class="page">
     <Header class="header">
         <div routerLink="/doctor" class="back-button">
@@ -8,7 +9,109 @@
     </Header>
     <div class="content">
         <form class="form" [formGroup]="doctorForm" (ngSubmit)="submit()">
+            <label class="section-title">Dados Pessoais</label>
+            <div class="input-container">
+                <div>
+                    <p>Nome</p>
+                    <input type="text" formControlName="firstName">
+                </div>
+                <div>
+                    <p>Sobrenome</p>
+                    <input type="text" formControlName="lastName">
+                </div> 
+                <div>
+                    <p>Data Nascimento</p>
+                    <input type="date" formControlName="bornDate">
+                </div>
+            </div>
+            <div class="input-container">
+                <div>
+                    <p>CPF</p>
+                    <input type="text" formControlName="cpf" mask="000.000.000-00">
+                </div>
+                <div>
+                    <p>CRM</p>
+                    <input type="text" formControlName="crm">
+                </div>
+            </div>
+            <div class="input-container">
+                <div>
+                    <p>Email</p>
+                    <input type="text" formControlName="email">
+                </div>
+                <div>
+                    <p>Telefone</p>
+                    <input type="text" mask="(00) 00000-0000" formControlName="phone">
+                </div>
+            </div>
+
+            <label class="section-title">Dados de acesso</label>
+            <div class="input-container">
+                <div>
+                    <p>Nome de usuário</p>
+                    <input type="text" formControlName="username">
+                </div>
+                <div>
+                    <p>Senha</p>
+                    <input type="password" formControlName="password">
+                </div> 
+            </div>   
             
+            <label class="section-title">Atendimento</label>
+            <div class="input-container">
+                <div>
+                    <p>Inicio Atendimento</p>
+                    <input class="input" formControlName="startWork" step="3600" type="time">
+                </div>
+                <div>
+                    <p>Final Atendimento</p>
+                    <input class="input" type="time" step="3600" formControlName="stopWork">
+                </div> 
+                <div>
+                    <p>Valor Consulta R$</p>
+                    <input class="input" type="text" formControlName="consultValue">
+                </div> 
+            </div>
+            <label class="section-title">Endereço</label>
+            <div class="item-container">
+                <div class="item">
+                    <label>CEP</label>
+                    <input (blur)="findCep()" mask="00000-000" formControlName="cep" type="text">
+                </div>
+                <div class="street">
+                    <label>Cidade</label>
+                    <input readonly formControlName="city" type="text">
+                </div>
+            </div>
+            <div class="item-container">
+                <div class="street">
+                    <label>Rua</label>
+                    <input readonly formControlName="street" type="text">
+                </div>
+                <div class="item">
+                    <label>Número</label>
+                    <input formControlName="number" maxlength="4" type="text">
+                </div>
+            </div>
+    
+            <div class="item-container">
+                <div class="street">
+                    <label>Bairro</label>
+                    <input readonly formControlName="district" type="text">
+                </div>
+                <div class="item">
+                    <label>Estado</label>
+                    <input readonly formControlName="state" type="text">
+                </div>
+            </div>
+    
+            <div>
+                <div class="item" style="width: 100%;">
+                    <label>Complemento</label>
+                    <input formControlName="complement" type="text">
+                </div>
+            </div>
+            <button class="button" [disabled]="!doctorForm.valid" type="submit">Cadastrar</button>
         </form>
     </div>
 </div>

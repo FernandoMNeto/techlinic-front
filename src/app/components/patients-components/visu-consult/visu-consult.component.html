@@ -1,0 +1,33 @@
+<div class="page">
+    <div class="container">
+        <h4 class="status"><span>Status: </span>{{data[0].situation | translate}}</h4>
+        <div class="content">
+            <h2 class="title">Paciente</h2>
+            <br>
+            <h3>Nome: {{data[0].pacientName}}</h3>
+        </div>
+        <div class="content">
+            <h2 class="title">Data</h2>
+            <br>
+            <h3>Dia: {{data[0].date}} às {{data[0].time}}</h3>
+        </div>
+        <div class="content">
+            <h2 class="title">Médico</h2>
+            <br>
+            <h3>Nome: {{data[0].doctorName}}</h3>
+        </div>
+        <div class="content">
+            <h2 class="title">Anamnese</h2>
+            <br>
+            <h3>{{data[0].complaint}}</h3>
+        </div>
+        <div class="content">
+            <h2 class="title">Diagnostico</h2>
+            <br>
+            <h3>{{data[0].diagnosis}}</h3>
+        </div>
+        <div class="closediv">
+            <button (click)="close()">Fechar</button> 
+        </div>
+    </div>
+</div>

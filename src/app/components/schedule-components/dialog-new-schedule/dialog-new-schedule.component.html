@@ -1,0 +1,37 @@
+<div class="card">
+    <h2>Novo agendamento</h2>
+    <form>
+        <div class="infos">
+          <label><p>Horário: </p>{{hour}}</label>
+          <label><p>Data: </p>{{date | datep}}</label>
+          <label><p>Médico: </p>{{doctor.firstName}} {{doctor.lastName}}</label>  
+        </div>
+        
+        <mat-form-field>
+          <div class="patient-selector">
+                <input type="text" 
+                matInput
+                placeholder="Selecione o paciente"
+                [matAutocomplete]="auto" 
+                [formControl]="myControl"
+                id="selected-patient-input"
+                style="width: 400px;"
+                >
+                <mat-autocomplete #auto="matAutocomplete" (optionSelected)="patientSelected($event)">
+                    <mat-option *ngFor="let p of filteredOptions | async" [value]="p">
+                        {{p.cpf | cpf}} - {{p.firstName}} {{p.lastName}}
+                    </mat-option>
+                </mat-autocomplete>
+            </div>  
+        </mat-form-field>
+        <div class="patient-selector">
+            <label><p>Motivo da consulta</p></label>
+            <textarea class="ob" name="complaint" [(ngModel)]="complaint"></textarea>
+        </div>
+        <div class="patient-selector">
+            <label><p>Observação</p></label>
+            <textarea class="ob" name="observation" [(ngModel)]="observation"></textarea>
+        </div>
+    </form>
+    <button type="submit" class="submit" (click)="submit()">Confirmar</button>
+</div>

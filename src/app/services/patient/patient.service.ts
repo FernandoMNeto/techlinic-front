@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
 import { PatientRecord } from 'src/app/models/patient/patientRecord.model';
@@ -15,7 +16,8 @@ export class PatientService {
   constructor(
     private http: HttpClient,
     private router: Router,
-    private toast: NgToastService
+    private toast: NgToastService,
+    private dialog: MatDialog,
   ) { }
 
   registerPatient(patient: any) {
@@ -24,8 +26,7 @@ export class PatientService {
       "cpf": patient.cpf,
       "firstName": patient.firstName,
       "lastName": patient.lastName,
-
-      "bornAt": patient.bornDate,
+      "bornAt": patient.bornAt,
       "contact": {
         "email": patient.email,
         "phone": patient.phone
@@ -45,7 +46,40 @@ export class PatientService {
         this.toast.success({detail: "Paciente cadastrado com sucesso!"});
       },
       error: (erro) => {
-        this.toast.error({detail: "Não foi possível cadastrar o paciente!", summary: erro.error[1]})
+        this.toast.error({detail: "Não foi possível cadastrar o paciente!", summary: erro})
+      }
+    })
+  }
+
+  updatePatient(patient: any, id: any) {
+    console.log(patient);
+    console.log(id);
+    this.http.put(this.baseUrl + `/update/${id}`,{
+      "cpf": patient.cpf,
+      "firstName": patient.firstName,
+      "lastName": patient.lastName,
+      "bornAt": patient.bornAt,
+      "contact": {
+        "email": patient.email,
+        "phone": patient.phone
+      },
+      "address": {
+        "cep": patient.cep,
+        "street": patient.street,
+        "district": patient.district,
+        "city": patient.city,
+        "state": patient.state,
+        "number": patient.number,
+        "complement": patient.complement
+      },
+    }).subscribe({
+      next: (response) => {
+        this.dialog.closeAll();
+        window.location.reload();
+        this.toast.success({detail: "Paciente atualizado com sucesso!"});
+      },
+      error: (erro) => {
+        this.toast.error({detail: "Não foi possível atualizar o paciente!", summary: erro[0]})
       }
     })
   }

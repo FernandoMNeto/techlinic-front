@@ -2,7 +2,7 @@ export class Patient {
     firstName: string = '';
     lastName: string = '';
     cpf: string = '';
-    bornDate!: Date;
+    bornDate!: string;
     email: string = '';
     phone: string = '';
     cep: string = '';

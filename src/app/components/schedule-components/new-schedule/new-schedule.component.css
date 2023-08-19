@@ -150,7 +150,7 @@ td > span {
 }
 
 tr:nth-child(even) {
-    background-color: rgb(220, 220, 220);
+    background-color: rgba(187, 224, 255, 0.388);
 }
 
 #hour {

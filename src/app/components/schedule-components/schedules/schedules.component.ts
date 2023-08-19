@@ -1,4 +1,6 @@
+import { Dialog } from '@angular/cdk/dialog';
 import { Component, OnInit } from '@angular/core';
+import { CancelScheduleComponent } from '../cancel-schedule/cancel-schedule.component';
 
 @Component({
   selector: 'app-schedules',
@@ -7,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SchedulesComponent implements OnInit {
 
-  constructor() { }
+
+  constructor(
+    private dialog: Dialog
+  ) { }
 
   menuStatus: number = 1;
 
@@ -18,4 +23,10 @@ export class SchedulesComponent implements OnInit {
     this.menuStatus = this.menuStatus * -1;
   }
 
+  cancel() {
+    this.dialog.open( CancelScheduleComponent, {
+        width: '50vw',
+        height: '50vh'
+      })
+  }
 }

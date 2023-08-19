@@ -12,17 +12,22 @@
         <label>Dados pessoais</label>
 
         <div class="item-container">
-
             <div class="name">
                 <label>Nome</label>
                 <input formControlName="firstName" type="text">
             </div>
-
             <div class="name">
                 <label>Sobrenome</label>
                 <input formControlName="lastName" type="text">
             </div>
-
+            <div class="name" id="sex">
+                <label>Sexo</label>
+                    <mat-select id="aa">
+                        <mat-option formControlName="sex" *ngFor="let s of sex" [value]="s">
+                            {{s}}
+                        </mat-option>
+                    </mat-select>
+            </div>
         </div>
 
         <div class="item-container">
@@ -49,7 +54,6 @@
                 <label>Data de nascimento</label>
                 <input formControlName="bornDate" type="date">
             </div>
-
         </div>
 
         <label>Endereço</label>
@@ -92,6 +96,6 @@
                 <input formControlName="complement" type="text">
             </div>
         </div>
-    <button class="button" [disabled]="!patientForm.valid" type="submit">Cadastrar</button>
+        <button class="button" [disabled]="!patientForm.valid" type="submit">Cadastrar</button>
     </form>
 </div>

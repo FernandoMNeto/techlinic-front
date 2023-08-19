@@ -1,0 +1,142 @@
+.page {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.header{
+    width: 100vw;
+    height: 8vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 5px;
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.content {
+    width: 100vw;
+    height: 92vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.back-button{
+    width: 110px;
+    height: 5vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    letter-spacing: 2px;
+    position: absolute;
+    left: 40px;
+    border: 2px solid white;
+    border-radius: 10px;
+    box-sizing: border-box;
+    color: white;
+    text-transform: uppercase;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.back-button:hover{
+    background-color: white;
+    color: var(--primary-color);
+}
+
+.selected-doctor {
+    width: 30%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--primary-color);
+}
+
+.selected-doctor>input {
+    border: 1px solid var(--primary-color);
+    padding: 8px;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.table-container{
+    margin-top: 50px;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    justify-content: center;
+}
+
+.table {
+    width: 100%;
+    height: 100%;
+    border: 2px solid var(--primary-color);
+}
+
+.times{
+    overflow: scroll;
+}
+
+.table tr {
+   height: 40px;
+}
+
+.table td {
+    position: relative;
+}
+
+td > span {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.table > th {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 5px;
+}
+
+tr:nth-child(even) {
+    background-color: rgb(250, 250, 250);
+}
+
+#id {
+    width: 5%;
+}
+
+#name {
+    width: 30%;
+}
+
+#age {
+    width: 5%;
+}
+
+#init {
+    width: 15%;
+}
+
+.consultBtn {
+    background: linear-gradient(rgb(35, 183, 35), rgb(71, 223, 71)) ;
+    color: white;
+    font-size: 16px;
+    padding: 10px 15px;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+}
+
+.consultBtn:hover {
+    background-color: rgb(9, 126, 9);
+}
+
+

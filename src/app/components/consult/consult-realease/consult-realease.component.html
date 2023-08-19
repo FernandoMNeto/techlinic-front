@@ -1,0 +1,37 @@
+<app-spinner *ngIf="loading == true"></app-spinner>
+<div class="page">
+    <Header class="header">
+        <h2>Atedimento</h2>
+    </Header>
+    <div class="content">
+        <div class="item-container">
+            <h2>Informações do Paciente</h2>
+            <mat-divider></mat-divider>
+            <label><b>Nome: </b>{{consult.pacientName}}</label>
+            <label><b>Idade: </b>{{consult.pacientAge}} anos</label>
+        </div>
+        <div class="item-container">
+            <h2>Informações consulta</h2>
+            <mat-divider></mat-divider>
+            <label><b>Descrição: </b>{{consult.description}}</label>
+            <label><b>Motivo: </b>{{consult.complaint}}</label>
+        </div>
+        <form action="">
+            <div class="anamnese">
+                <h2 class="anamnese">Anamnese</h2>
+                <textarea cols="50" rows="5"></textarea>
+            </div>
+            <div class="anamnese">
+                <h2 class="anamnese">Prescrição</h2>
+                <textarea cols="50" rows="5"></textarea>
+            </div>
+            <div class="anamnese">
+                <h2 class="anamnese">Receita</h2>
+                <textarea cols="50" rows="10"></textarea>
+            </div>
+            <div class="btns">
+                <button class="finish">Finalizar Atendimento</button>
+            </div> 
+        </form>
+    </div>
+</div>

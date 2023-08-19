@@ -15,6 +15,7 @@ export class RegisterPatientComponent implements OnInit {
 
   patientForm!: FormGroup; 
   loading = false;
+  sex = ['MASCULINO', 'FEMININO']
  
   constructor(
     private formBuilder: FormBuilder,
@@ -100,6 +101,11 @@ export class RegisterPatientComponent implements OnInit {
   }
 
   submit() {
+    if(this.patientForm.value('sex') == 'MASCULINO') {
+      console.log('masculino')
+    }else if(this.patientForm.value('sex') == 'FEMININO') {
+      console.log('feminino')
+    }
     this.patientService.registerPatient(this.patientForm.value);
   }
 

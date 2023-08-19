@@ -24,6 +24,7 @@
     height: 92vh;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     box-sizing: border-box;
 }
 
@@ -40,6 +41,15 @@
     font-weight: 200;
     margin-top: 8px;
     margin-bottom: 2px;
+}
+
+#sex {
+    width: 25%;
+    padding-left: 10px;
+}
+
+#aa {
+    padding-top: 5px;
 }
 
 input {

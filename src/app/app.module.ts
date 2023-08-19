@@ -32,7 +32,13 @@ import { UpdatePatientComponent } from './components/patients-components/update-
 import { NewScheduleComponent } from './components/schedule-components/new-schedule/new-schedule.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { RegisterDoctorComponent } from './components/doctor-components/register-doctor/register-doctor.component';
-
+import { DailyConsultsComponent } from './components/consult/daily-consults/daily-consults.component';
+import { ConsultRealeaseComponent } from './components/consult/consult-realease/consult-realease.component';
+import { DialogNewScheduleComponent } from './components/schedule-components/dialog-new-schedule/dialog-new-schedule.component';
+import { CancelScheduleComponent } from './components/schedule-components/cancel-schedule/cancel-schedule.component';
+import { TranslatePipe } from './pipes/translate/translate.pipe';
+import { DatepPipe } from './pipes/datepipe/datep.pipe';
+import { VisuConsultComponent } from './components/patients-components/visu-consult/visu-consult.component';
 
 
 @NgModule({
@@ -58,7 +64,14 @@ import { RegisterDoctorComponent } from './components/doctor-components/register
     UpdatePatientComponent,
     NewScheduleComponent,
     SpinnerComponent,
-    RegisterDoctorComponent
+    RegisterDoctorComponent,
+    DailyConsultsComponent,
+    ConsultRealeaseComponent,
+    DialogNewScheduleComponent,
+    CancelScheduleComponent,
+    TranslatePipe,
+    DatepPipe,
+    VisuConsultComponent
   ],
   imports: [
     BrowserModule,

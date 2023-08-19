@@ -1,0 +1,32 @@
+<div class="card">
+    <h1>Cancelamento de Agendamento</h1>
+    <mat-form-field>
+        <div class="patient-selector">
+              <input type="text" 
+              matInput
+              placeholder="Selecione o paciente"
+              [matAutocomplete]="auto" 
+              [formControl]="myControl"
+              id="selected-patient-input"
+              />
+              <mat-autocomplete #auto="matAutocomplete" (optionSelected)="findNextConsults($event)">
+                  <mat-option *ngFor="let p of filteredOptions | async" [value]="p">
+                      {{p.cpf | cpf}} - {{p.firstName}} {{p.lastName}}
+                  </mat-option>
+              </mat-autocomplete>
+          </div>  
+      </mat-form-field>
+
+        <table class="table">
+            <th>Data</th>
+            <th>Horário</th>
+            <th>Médico</th>
+            <th></th>
+            <tr *ngFor="let s of schedules">
+                <td class="td"><span>{{s.date}}</span></td>
+                <td class="td" ><span>{{s.time}}</span></td>
+                <td class="td"><span>{{s.doctorName}}</span></td>
+                <td class="td"><button class="cancel" (click)="cancelSchedule(s)">CANCELAR</button></td>
+            </tr>
+      </table>
+</div>

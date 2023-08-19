@@ -1,9 +1,15 @@
-import { Time } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+import { MatDialog } from '@angular/material/dialog';
+import { Observable } from 'rxjs';
+import { agendTable } from 'src/app/models/agendamento-table/agendTable.model';
+import { Consult } from 'src/app/models/consult/consult.model';
 import { Doctor } from 'src/app/models/doctor/doctor.model';
+import { ConsultService } from 'src/app/services/consult/consult.service';
 import { DoctorService } from 'src/app/services/doctor/doctor.service';
+import { DialogNewScheduleComponent } from '../dialog-new-schedule/dialog-new-schedule.component';
+import { NgToastService } from 'ng-angular-popup';
 
 @Component({
   selector: 'app-new-schedule',
@@ -11,11 +17,7 @@ import { DoctorService } from 'src/app/services/doctor/doctor.service';
   styleUrls: ['./new-schedule.component.css']
 })
 export class NewScheduleComponent implements OnInit {
-  selected!: Date;
-  loading = false;
-  doctors!: Doctor[];
-  selectDoctorId!: Number;
-  hours: string[] = [
+hours: string[] = [
     '00:00',
     '00:15',
     '00:30',
@@ -113,12 +115,23 @@ export class NewScheduleComponent implements OnInit {
     '23:30',
     '23:45',
   ];
+
+  loading = false;
+  selected!: Date;
+  doctors!: Doctor[];
+  dateConsults!: Consult[];
+  selectDoctorId!: Number;
+  hoursWSchedule: agendTable[] = [];
   selectedDoctor!: Doctor;
-  availableHours: String[] = [];
+  availableHours: string[] = [];
   myControl = new FormControl('');
+  consultsCouter!: number;
 
   constructor(
     private doctorService: DoctorService,
+    private cService: ConsultService,
+    private dialog: MatDialog,
+    private toast: NgToastService
   ) { }
 
   ngOnInit(): void {
@@ -134,24 +147,84 @@ export class NewScheduleComponent implements OnInit {
     inputElement.value = this.selectDoctor(this.selectedDoctor);
   }
 
-  selectDoctor(doctor: Doctor): string {
+  selectDoctor(doctor: Doctor) {
+    this.loading = true;
+    this.selectedDoctor = doctor
     this.selectDoctorId = doctor.id;
     var start = doctor.startWork;
     var stop = doctor.stopWork;
-    this.availableHours = [];
-    this.pushAvailableHours(start, stop)
+
+    this.pushTime(start, stop, doctor);
+    
     return doctor ? `${doctor.firstName} ${doctor.lastName}` : '';
   }
 
-  pushAvailableHours(start: string, stop: string) {
-    console.log(this.selectDoctorId)
-    for(var i = this.hours.indexOf(start); i<=this.hours.indexOf(stop)-1; i++) {
-          this.availableHours.push(this.hours[i]);
+  pushTime(start: string, stop: string, doctor: Doctor) {
+    var startH =  this.hours.indexOf(start);
+    var startS = this.hours.indexOf(stop);
+    var tamanho = 0;
+    this.dateConsults = []
+    this.cService.scheduleSearch(doctor.id, this.formatDate()).subscribe({
+      next: (res) => {
+        if(!!res?.length) {
+          tamanho = res.length
+          for(var i=0; i<res.length;i++) {
+            this.dateConsults.push(res[i])
+          }
+        }
+        this.buildAgend(startH, startS, tamanho);
+      }
+    });
+    
+  }
+
+  buildAgend(start: number, stop: number, tamanho: number) {
+    var c = 0;
+    this.hoursWSchedule = []
+    for(var i = start; i<=stop; i++) {
+      var aux = new agendTable();
+      aux.hour = this.hours[i];
+      if(tamanho > 0 && c < tamanho) {
+        if(this.dateConsults[c].time == aux.hour) {
+          aux.pacientName = this.dateConsults[c].pacientName
+          aux.phone = this.dateConsults[c].pacientPhone
+          aux.status = this.dateConsults[c].situation
+          c++;
+        }
+      }
+      this.hoursWSchedule.push(aux)
+    }
+    this.loading = false;
+  }
+
+  newSchedule(time: string, pName: string) {
+    if(pName == "") {
+      this.dialog.open(DialogNewScheduleComponent,{
+      width: '30vw',
+      height: '60vh',
+      data: [time, this.selectedDoctor, this.formatDate()]
+      })
+    } else {
+      this.toast.info({detail: 'Horário já possui um agendamento!'})
     }
   }
 
-  pullTimes(doctor: any) {
-    
+  formatDate() {
+    var dateFormatted;
+    var year = this.selected.getFullYear();
+    var month:any = this.selected.getMonth()+1;
+    var day:any = this.selected.getDate();
+
+    if(month<=9) {
+      month = "0" + month
+    }
+    if(day<=9) {
+      day = "0" + day;
+    }
+
+    dateFormatted = year + "-" + month + "-" + day;
+
+    return dateFormatted;
   }
 
 }

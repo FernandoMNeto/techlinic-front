@@ -13,6 +13,8 @@ import { SchedulesComponent } from './components/schedule-components/schedules/s
 import { AutheticationGuard } from './guards/authetication.guard';
 import { NewScheduleComponent } from './components/schedule-components/new-schedule/new-schedule.component';
 import { RegisterDoctorComponent } from './components/doctor-components/register-doctor/register-doctor.component';
+import { DailyConsultsComponent } from './components/consult/daily-consults/daily-consults.component';
+import { ConsultRealeaseComponent } from './components/consult/consult-realease/consult-realease.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' },
@@ -27,7 +29,9 @@ const routes: Routes = [
   { path: 'record/:id', component: RecordPatientComponent, canActivate: [AutheticationGuard] },
   { path: 'all-patients', component: AllPatientsComponent, canActivate: [AutheticationGuard] },
   { path: 'new-schedule', component: NewScheduleComponent, canActivate: [AutheticationGuard] },
-  { path: 'register-doctor', component: RegisterDoctorComponent, canActivate: [AutheticationGuard] }
+  { path: 'register-doctor', component: RegisterDoctorComponent, canActivate: [AutheticationGuard] },
+  { path: 'daily-consults', component: DailyConsultsComponent, canActivate: [AutheticationGuard] },
+  { path: 'consult/:id/:pname', component: ConsultRealeaseComponent, canActivate: [AutheticationGuard] }
 ];
 
 @NgModule({

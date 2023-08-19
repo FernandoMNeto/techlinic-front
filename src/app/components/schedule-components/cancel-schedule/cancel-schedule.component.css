@@ -1,0 +1,48 @@
+.card {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding:20px 0px;
+    gap: 20px;
+    width: 100%;
+    height: 100%;
+}
+
+.card > h1 {
+    color: var(--primary-color);
+}
+mat-form-field {
+    width: 80%;
+}
+.table {
+    width: 90%;
+}
+
+.table > th {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 5px 5px;
+}
+
+.cancel {
+    background-color: red;
+    padding: 5px 10px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-transform: lowercase;
+    cursor: pointer;
+}
+
+td{
+    text-align: center;
+}
+
+tr {
+    height: 15%;
+}
+
+tr:nth-child(even) {
+    background-color: rgb(240, 240, 240);
+}

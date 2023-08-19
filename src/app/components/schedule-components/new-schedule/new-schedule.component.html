@@ -1,61 +1,53 @@
 <app-spinner *ngIf="loading == true"></app-spinner>
-<div class="page">  
-   <Header class="header">
-    <div routerLink="/schedules" class="back-button">
-        <span class="material-symbols-outlined" style="font-weight: 800;">reply</span>
-        <p>voltar</p>
-    </div>
-    <h2>Novo agendamento</h2>
-</Header> 
-<div class="content">
-    <div class="left-div">
-        <mat-card class="demo-inline-calendar-card">
+<div class="page">
+    <Header class="header">
+        <div routerLink="/schedules" class="back-button">
+            <span class="material-symbols-outlined" style="font-weight: 800;">reply</span>
+            <p>voltar</p>
+        </div>
+        <h2>Agendamentos</h2>
+    </Header>
+    <div class="content">
+        <div class="left-div">
+            <mat-card class="demo-inline-calendar-card">
                 <mat-calendar [(selected)]="selected"></mat-calendar>
-        </mat-card>
-        <mat-card class="demo-inline-calendar-card">
-            <mat-calendar></mat-calendar>
-        </mat-card>
-    </div>
-    <mat-divider [vertical]="true"></mat-divider>
-    <div class="right-div">
-        <div class="selections">
-            <div class="selected-date">
-                <mat-label>Data selecinada: </mat-label>
-                <input matInput [matDatepicker]="picker" [ngModel] = "selected" disabled>
-                <mat-datepicker #picker></mat-datepicker>
-            </div>    
-            <div class="selected-doctor">
-                <mat-label>Médico: </mat-label>
-                <input id="idDoctor" type="text" readonly [ngModel] = selectDoctorId>
-                <input type="text" 
-                    placeholder="Selecione o médico" 
-                    matInput 
-                    [formControl]="myControl" 
-                    [matAutocomplete]="auto"
-                    [contentEditable]="true"
-                    id="selected-doctor-input">
-                <mat-autocomplete #auto="matAutocomplete" (optionSelected)="doctorSelected($event)">
-                    <mat-option *ngFor="let doctor of doctors" [value]="doctor">
-                         {{doctor.id + " - " +doctor.firstName + " " + doctor.lastName}}
-                    </mat-option>
-                </mat-autocomplete>
-            </div>    
+            </mat-card>
         </div>
-        <mat-divider></mat-divider>
-        <div class="times">
-            <table class="table">
-                <th id="hour">Horario</th> 
-                <th id="patient">Paciente</th>
-                <th id="phone">Telefone</th>
-                <th id="status">Status</th>
-                <tr class="hours" *ngFor="let hour of availableHours">
-                    <td class="td"><span>{{hour}}</span></td>
-                    <td class="td"><span>Fernando Mendes Neto</span></td>
-                    <td class="td"><span>(18)99802-3114</span></td>
-                    <td class="td"><span>AGENDADO</span></td>
-                </tr>
-            </table>
+        <mat-divider [vertical]="true"></mat-divider>
+        <div class="right-div">
+            <div class="selections">
+                <div class="selected-date">
+                    <mat-label>Data selecinada: </mat-label>
+                    <input matInput [matDatepicker]="picker" [(ngModel)]="selected" disabled>
+                    <mat-datepicker id="calendar2" #picker></mat-datepicker>
+                </div>
+                <div class="selected-doctor">
+                    <mat-label>Médico: </mat-label>
+                    <input id="idDoctor" type="text" readonly [ngModel]=selectDoctorId>
+                    <input type="text" placeholder="Selecione o médico" matInput [formControl]="myControl"
+                        [matAutocomplete]="auto" [contentEditable]="true" id="selected-doctor-input">
+                    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="doctorSelected($event)">
+                        <mat-option *ngFor="let doctor of doctors" [value]="doctor">
+                            {{doctor.id + " - " +doctor.firstName + " " + doctor.lastName}}
+                        </mat-option>
+                    </mat-autocomplete>
+                </div>
+            </div>
+            <mat-divider></mat-divider>
+            <div class="times">
+                <table class="table">
+                    <th id="hour">Horario</th>
+                    <th id="patient">Paciente</th>
+                    <th id="phone">Telefone</th>
+                    <th id="status">Status</th>
+                    <tr class="hours" *ngFor="let h of hoursWSchedule" (click)="newSchedule(h.hour, h.pacientName)">
+                        <td class="td" ><span>{{h.hour}}</span></td>
+                        <td class="td" ><span>{{h.pacientName}}</span></td>
+                        <td class="td"><span >{{h.phone | phone}}</span></td>
+                        <td class="td"><span>{{h.status | translate}}</span></td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
-</div>
 </div>

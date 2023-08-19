@@ -21,7 +21,8 @@ export class UpdatePatientComponent implements OnInit {
     private formBuilder: FormBuilder,
     private dialog: MatDialog,
     private cepService: CepService,
-    private toast: NgToastService
+    private toast: NgToastService,
+    private pService: PatientService
   ) { }
 
   ngOnInit(): void {
@@ -49,7 +50,6 @@ export class UpdatePatientComponent implements OnInit {
   findCep() {
     this.cepService.findCep(this.updateForm.value.cep).subscribe({
      next: (cepData: any) => {
- 
        if(cepData.localidade == null) {
          this.toast.error({detail: "CEP inválido!"});
        }else {
@@ -81,7 +81,7 @@ export class UpdatePatientComponent implements OnInit {
   }
 
   submitForm() {
-  
+    this.pService.updatePatient(this.updateForm.value, this.patient.id);
   }
 
   closeDialog() {
